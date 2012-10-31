@@ -1,0 +1,10 @@
+name: rikulo_orm
+version: 0.5.0
+description: >
+  Rikulo ORM is an Object-relational mapping package for Dart.
+authors:
+- Henri Chen <henrichen@rikulo.org>
+homepage: http://rikulo.org
+dependencies:
+  rikulo_commons:
+    git: git://github.com/rikulo/rikulo-commons.git

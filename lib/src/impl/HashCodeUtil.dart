@@ -1,0 +1,1 @@
+int globalHashCode = 0;
