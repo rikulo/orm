@@ -3,7 +3,7 @@
 // Author: hernichen
 
 /** Track entities with a persistence context */
-interface EntityManager {
+abstract class EntityManager {
   /** Start a transaction in a seperate thread and execute the exec function.
    * Note the exec function must return a Future that would pass the results of
    * the execution as the "value" argument to the returned Future in the

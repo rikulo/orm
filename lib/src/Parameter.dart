@@ -5,7 +5,7 @@
 /** Parameter used in Query.
  *  + [T] - the type of this parameter.
  */
-interface Parameter<T> {
+abstract class Parameter<T> {
   /** Returns the parameter name, null if not a named parameter. */
   String getName();
 

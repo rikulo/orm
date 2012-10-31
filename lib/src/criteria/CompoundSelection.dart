@@ -5,5 +5,4 @@
 /** Define a compund selection item (tuple, array, or result of construtor)
  * + [X] - the type of the selection item.
  */
-class CompoundSelection<X> extends Selection<X> {
-}
+class CompoundSelection<X> extends Selection<X> {}

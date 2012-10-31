@@ -4,8 +4,8 @@
 
 /** How the EntityManager handle 2nd-level cache for the persistence unit. */
 class PessimisticLockScope extends Enum {
-  static final PessimisticLockScope EXTENDED = const PessimisticLockScope("EXTENDED", 0);
-  static final PessimisticLockScope NORMAL = const PessimisticLockScope("NORMAL", 1);
+  static const PessimisticLockScope EXTENDED = const PessimisticLockScope("EXTENDED", 0);
+  static const PessimisticLockScope NORMAL = const PessimisticLockScope("NORMAL", 1);
 
   const PessimisticLockScope(String name, int ordinal) : super(name, ordinal);
 }

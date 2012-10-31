@@ -42,7 +42,7 @@ class PersistenceProviderImpl implements PersistenceProvider {
 
   Future<EntityManagerFactory> _createEntityManagerFactory0(
       PersistenceUnitInfo uinfo, Map properties) {
-    ORMInfo oinfo = _getOrmInfo(properties);
+    OrmInfo oinfo = _getOrmInfo(properties);
     Metamodel mmodel = new MetamodelImpl(uinfo, oinfo);
     Completer<EntityManagerFactory> cmpl = new Completer();
     cmpl.complete(new EntityManagerFactoryImpl(uinfo, mmodel, properties));
@@ -74,8 +74,8 @@ class PersistenceProviderImpl implements PersistenceProvider {
 
   //read orm.xml to get the mapping information and return Metamodal.
   //TODO(henir): orm.xml is not implemented yet. Future?
-  ORMInfo _getOrmInfo(Map myprops) {
-    ORMInfo minfo = myprops == null ?
+  OrmInfo _getOrmInfo(Map myprops) {
+    OrmInfo minfo = myprops == null ?
         null : myprops[Persistence.ORM_INFO];
 
     if (minfo == null)

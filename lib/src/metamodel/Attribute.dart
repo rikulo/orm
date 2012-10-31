@@ -6,7 +6,7 @@
  * + [X] - the represented type that contains the attribute.
  * + [Y] - the type of the represented attribute.
  */
-interface Attribute<X,Y> {
+abstract class Attribute<X,Y> {
   /** Returns the managed Class where the attribute is declared */
   ManagedType<X> getDeclaringType();
 

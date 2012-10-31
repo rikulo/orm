@@ -4,8 +4,8 @@
 
 /** boolean operator on [Predicate]. */
 class BooleanOperator extends Enum {
-  static final BooleanOperator AND = const BooleanOperator("AND", 0);
-  static final BooleanOperator OR = const BooleanOperator("OR", 1);
+  static const BooleanOperator AND = const BooleanOperator("AND", 0);
+  static const BooleanOperator OR = const BooleanOperator("OR", 1);
 
   const BooleanOperator(String name, int ordinal) : super(name, ordinal);
 }

@@ -3,7 +3,7 @@
 // Author: hernichen
 
 /** EntityManger factory for the persistence unit. */
-interface EntityManagerFactory {
+abstract class EntityManagerFactory {
   /** Create an EntityManager with optional [properties]. A new
    * EntityManager is created each time this method is called.
    * + [properties] - optional properties.

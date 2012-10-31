@@ -4,9 +4,9 @@
 
 /** Bindable type. */
 class BindableType extends Enum {
-  static final BindableType ENTITY_TYPE = const BindableType("ENTITY_TYPE", 0);
-  static final BindableType PLURAL_ATTRIBUTE = const BindableType("PLURAL_ATTRIBUTE", 1);
-  static final BindableType SINGULAR_ATTRIBUTE = const BindableType("SINGULAR_ATTRIBUTE", 2);
+  static const BindableType ENTITY_TYPE = const BindableType("ENTITY_TYPE", 0);
+  static const BindableType PLURAL_ATTRIBUTE = const BindableType("PLURAL_ATTRIBUTE", 1);
+  static const BindableType SINGULAR_ATTRIBUTE = const BindableType("SINGULAR_ATTRIBUTE", 2);
 
   const BindableType(String name, int ordinal) : super(name, ordinal);
 }

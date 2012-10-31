@@ -5,7 +5,7 @@
 /** Called by [Persistence] class or container to create an
  * [EntityManagerFactory].
  */
-interface PersistenceProvider {
+abstract class PersistenceProvider {
   /** Called by container to create an [EntityManagerFactory].
    * + [info] - metadata used by the persistence provider.
    * + [properties] - properties for integration used by persistence provider.

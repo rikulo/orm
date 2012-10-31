@@ -5,4 +5,4 @@
 /** Represent mapped superclass type.
  *  + [X] - the represented entity type.
  */
-interface MappedSuperclassType<X> extends IdentifiableType<X> {}
+abstract class MappedSuperclassType<X> extends IdentifiableType<X> {}

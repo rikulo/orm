@@ -3,7 +3,7 @@
 // Author: hernichen
 
 /** Informaiton of a persistence unit(database) */
-interface PersistenceUnitInfo {
+abstract class PersistenceUnitInfo {
   /** Add a new ClassTransformer */
   //TODO
   //addTransformer(ClassTransformer transformer);

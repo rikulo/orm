@@ -6,7 +6,7 @@
  * the getPersistenceProviders() can be call multiple times; maybe you want to
  * cache the instance.
  */
-interface PersistenceProviderResolver {
+abstract class PersistenceProviderResolver {
   /** Clear the cached providers */
   void clearCachedProviders();
 

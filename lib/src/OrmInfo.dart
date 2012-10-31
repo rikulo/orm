@@ -5,7 +5,7 @@
 /** Reflection of an orm.xml file that contains object/relational mapping
  * information.
  */
-class ORMInfo {
+class OrmInfo {
   Map<String, List<Annotation>> _typesAnnts = new Map();
   Map<String, Map<String, List<Annotation>>> _fieldsAnnts = new Map();
 

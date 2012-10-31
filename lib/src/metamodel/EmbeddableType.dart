@@ -5,4 +5,4 @@
 /** Represents embeddable types.
  *  + [X] - the represented type.
  */
-interface EmbeddableType<X> extends ManagedType<X> {}
+abstract class EmbeddableType<X> extends ManagedType<X> {}

@@ -44,56 +44,56 @@ class PersistenceInfo {
    * + [validationMode] - validatoin mode
    * + [properties] - properties for general purposes; see List below
    *   + General
-   *     + `rikulo:orm.lock.timeout` - value in milliseconds for pessimistic
+   *     + `rikulo_orm.lock.timeout` - value in milliseconds for pessimistic
    *        lock timeout.
-   *     + `rikulo:orm.query.timeout` - value in milliseconds for query timeout.
-   *     + `rikulo:orm.validation.group.pre-persist` - groups that are targeted
+   *     + `rikulo_orm.query.timeout` - value in milliseconds for query timeout.
+   *     + `rikulo_orm.validation.group.pre-persist` - groups that are targeted
    *        for validation upon the pre-persist event.
-   *     + `rikulo:orm.validation.group.pre-update` - groups that are targeted
+   *     + `rikulo_orm.validation.group.pre-update` - groups that are targeted
    *        for validation upon the pre-update event.
-   *     + `rikulo:orm.validation.group.pre-remove` - groups that are targeted
+   *     + `rikulo_orm.validation.group.pre-remove` - groups that are targeted
    *        for validation upon the pre-remove event.
    *
    *   + DataBase Connection
-   *     + `rikulo:orm.connection.driver` - qualified name of the driver class.
-   *     + `rikulo:orm.connection.url` - driver-specific URL.
-   *     + `rikulo:orm.connection.username` - username used by database
+   *     + `rikulo_orm.connection.driver` - qualified name of the driver class.
+   *     + `rikulo_orm.connection.url` - driver-specific URL.
+   *     + `rikulo_orm.connection.username` - username used by database
    *        connection.
-   *     + `rikulo:orm.connection.password` - password used by database
+   *     + `rikulo_orm.connection.password` - password used by database
    *        connection.
-   *     + `rikulo:orm.connection.poolsize` - connection pool size.
-   *     + `rikulo:orm.connection.isolation` - transaction isolation level.
-   *     + `rikulo:orm.connectino.autocommit` - enables autocommit for each
+   *     + `rikulo_orm.connection.poolsize` - connection pool size.
+   *     + `rikulo_orm.connection.isolation` - transaction isolation level.
+   *     + `rikulo_orm.connectino.autocommit` - enables autocommit for each
    *       transaction.
    *
    *   + SQL control
-   *     + `rikulo:orm.sql.fetchsize` - determine the sql statement fetch size.
-   *     + `rikulo:orm.sql.batchsize` - batch update size
+   *     + `rikulo_orm.sql.fetchsize` - determine the sql statement fetch size.
+   *     + `rikulo_orm.sql.batchsize` - batch update size
    *
    *   + Cache control:
-   *     + `rikulo:orm.cache.provider` - qualified class name of the custom
+   *     + `rikulo_orm.cache.provider` - qualified class name of the custom
    *       [CacheProvider]
-   *     + `rikulo:orm.cache.use_minimal_puts - optimize to minimize writes and
+   *     + `rikulo_orm.cache.use_minimal_puts - optimize to minimize writes and
    *       more frequently reads; useful for clustered caches.
    *
    *   + Transaction control:
-   *     + `rikulo:orm.transaction.factory` - qualified class name used to
+   *     + `rikulo_orm.transaction.factory` - qualified class name used to
    *       create custom [EntityTransaction].
    *
    *   + Other:
-   *     + `rikulo:orm.dialect` - dialect class name of the database system.
-   *     + `rikulo:orm.show_sql` - write SQL statement to console.
-   *     + `rikulo:orm.max_fetch_depth` - sets the maximum "depth" for outer
+   *     + `rikulo_orm.dialect` - dialect class name of the database system.
+   *     + `rikulo_orm.show_sql` - write SQL statement to console.
+   *     + `rikulo_orm.max_fetch_depth` - sets the maximum "depth" for outer
    *        join fetch for those single ended(one-to-one, many-to-one)
    *        associations.
-   *     + `rikulo:orm.default_batch_fetch_size` - default size of batch
+   *     + `rikulo_orm.default_batch_fetch_size` - default size of batch
    *        fetching.
-   *     + `rikulo:orm.order_updates` - whether do entity updates in the
+   *     + `rikulo_orm.order_updates` - whether do entity updates in the
    *        order of primary key.
    */
   persistenceUnit(String name, [
       TransactionType transactionType = TransactionType.RESOURCE_LOCAL,
-      String provider = "rikulo:orm/spi/impl.PersistenceProviderImpl",
+      String provider = "rikulo_orm/spi/impl.PersistenceProviderImpl",
       List<String> classes = const [],
       List<String> mappingFiles = const [],
       SharedCacheMode sharedCacheMode = SharedCacheMode.UNSPECIFIED,

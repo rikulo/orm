@@ -6,6 +6,7 @@ library rikulo_orm_impl;
 import "dart:coreimpl";
 import "dart:mirrors";
 import 'package:rikulo_commons/util.dart';
+import 'package:rikulo_commons/mirrors.dart';
 
 import "orm.dart";
 import "spi.dart";

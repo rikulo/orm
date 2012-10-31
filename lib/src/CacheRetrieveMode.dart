@@ -6,8 +6,8 @@
  * database(by find or queries).
  */
 class CacheRetrieveMode extends Enum {
-  static final CacheRetrieveMode BYPASS = const CacheRetrieveMode("BYPASS", 0);
-  static final CacheRetrieveMode USE = const CacheRetrieveMode("USE", 1);
+  static const CacheRetrieveMode BYPASS = const CacheRetrieveMode("BYPASS", 0);
+  static const CacheRetrieveMode USE = const CacheRetrieveMode("USE", 1);
 
   const CacheRetrieveMode(String name, int ordinal) : super(name, ordinal);
 }

@@ -3,5 +3,4 @@
 // Author: hernichen
 
 /** Parameter expression */
-abstract class ParameterExpression<T> implements Parameter<T>, Expression<T> {
-}
+abstract class ParameterExpression<T> implements Parameter<T>, Expression<T> {}

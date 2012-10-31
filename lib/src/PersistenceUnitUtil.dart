@@ -6,7 +6,7 @@
 /** Untility interface between the application and the persistence provider that
  * managing the persistence unit.
  */
-interface PersistenceUnitUtil {
+abstract class PersistenceUnitUtil {
   /**  Return the id of the entity. */
   getIdentifier(var entity);
 

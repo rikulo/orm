@@ -22,7 +22,7 @@ class MetamodelImpl implements Metamodel {
   Map<String, NamedQuery> _namedQueries = new Map();
   Map<String, NamedNativeQuery> _namedNativeQueries = new Map();
 
-  MetamodelImpl(PersistenceUnitInfo uinfo, ORMInfo oinfo) {
+  MetamodelImpl(PersistenceUnitInfo uinfo, OrmInfo oinfo) {
     _initBasicTypes();
 
     //For all mapped classes in uinfo, create metainfo per specified OrmInfo
@@ -100,7 +100,7 @@ class MetamodelImpl implements Metamodel {
 
   //TODO(henri): not completely implemented yet!
   void _handleTypeAnnts(ClassMirror cls, List<Annotation> typeAnnts,
-                        ORMInfo oinfo) {
+                        OrmInfo oinfo) {
 
     AccessType aType = AccessType.FIELD; //@Access
     bool cacheable = true;
@@ -232,7 +232,7 @@ class MetamodelImpl implements Metamodel {
   }
 
   //register event life cycle methods for callback listener class
-  void _handleListenerAnnts(mType, ClassMirror lcls, ORMInfo oinfo) {
+  void _handleListenerAnnts(mType, ClassMirror lcls, OrmInfo oinfo) {
     Map<String, List<Annotation>> fieldsAnnts =
         oinfo.getFieldsAnnotations(lcls.qualifiedName);
     lcls.methods.values.forEach((MethodMirror method) {

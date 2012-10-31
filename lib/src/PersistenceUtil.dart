@@ -9,7 +9,7 @@
  * determine the load state of an entity or entity attribute regardless
  * of which persistence provider in the environment created the entity.
  */
-interface PersistenceUtil {
+abstract class PersistenceUtil {
   /** Check the load state (of a given attribute) of an entity.
    * + [entity] - the entity to be checked of its load state.
    * + [attributeName] - the name of the attribute whose load state is to be

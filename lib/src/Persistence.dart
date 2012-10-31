@@ -4,8 +4,8 @@
 
 /** Singleton to start everything about object persistence */
 class Persistence {
-  static final String PERSISTENCE_INFO = "rikulo:orm.PersistenceInfo";
-  static final String ORM_INFO = "rikulo:orm.ORMInfo";
+  static final String PERSISTENCE_INFO = "rikulo_orm.PersistenceInfo";
+  static final String ORM_INFO = "rikulo_orm.OrmInfo";
 
   /** Connect and return an [EntityManagerFactory] for the persistence unit of
    * the specified [name] and optional [properties].
@@ -16,69 +16,69 @@ class Persistence {
    *   those defined in [PersistenceInfo].
    *
    *   + Bootstrap
-   *     + "rikulo:orm.PersistenceInfo" - optional property to provide a
+   *     + "rikulo_orm.PersistenceInfo" - optional property to provide a
    *       [PersistenceInfo] persistence information.
-   *     + "rikulo:orm.ORMInfo" - optional property to provide an [ORMInfo]
+   *     + "rikulo_orm.OrmInfo" - optional property to provide an [OrmInfo]
    *        Object/Relational-DB mapping information.
    *
    *   + General
-   *     + `rikulo:orm.lock.timeout` - value in milliseconds for pessimistic
+   *     + `rikulo_orm.lock.timeout` - value in milliseconds for pessimistic
    *        lock timeout; override same property in [PersistenceInfo]
-   *     + `rikulo:orm.query.timeout` - value in milliseconds for query timeout
+   *     + `rikulo_orm.query.timeout` - value in milliseconds for query timeout
    *        ; override same property in [PersistenceInfo].
-   *     + `rikulo:orm.provider` - class name of peristence provider; override
+   *     + `rikulo_orm.provider` - class name of peristence provider; override
    *        corresponding info in [PersistenceInfo].
-   *     + `rikulo:orm.transactonType` - transaction type of persistence unit;
+   *     + `rikulo_orm.transactonType` - transaction type of persistence unit;
    *        override corrsponding info in [PersistenceInfo].
-   *     + `rikulo:orm.sharedCache.mode` - override sharedCacheMode of
+   *     + `rikulo_orm.sharedCache.mode` - override sharedCacheMode of
    *       [PersistenceInfo].
-   *     + `rikulo:orm.validation.mode` - override validationMode of
+   *     + `rikulo_orm.validation.mode` - override validationMode of
    *       [PersistenceInfo].
-   *     + `rikulo:orm.validation.group.pre-persist` - groups that are targeted
+   *     + `rikulo_orm.validation.group.pre-persist` - groups that are targeted
    *        for validation upon the pre-persist event; override same property
    *        in [PersistenceInfo]
-   *     + `rikulo:orm.validation.group.pre-update` - groups that are targeted
+   *     + `rikulo_orm.validation.group.pre-update` - groups that are targeted
    *        for validation upon the pre-update event; override same property in
    *        [PersistenceInfo].
-   *     + `rikulo:orm.validation.group.pre-remove` - groups that are targeted
+   *     + `rikulo_orm.validation.group.pre-remove` - groups that are targeted
    *        for validation upon the pre-remove event; override same property in
    *        [PersistenceInfo].
    *
    *   + DataBase Connection
-   *     + `rikulo:orm.connection.driver` - qualified name of the driver class.
-   *     + `rikulo:orm.connection.url` - driver-specific URL.
-   *     + `rikulo:orm.connection.username` - username used by database
+   *     + `rikulo_orm.connection.driver` - qualified name of the driver class.
+   *     + `rikulo_orm.connection.url` - driver-specific URL.
+   *     + `rikulo_orm.connection.username` - username used by database
    *        connection.
-   *     + `rikulo:orm.connection.password` - password used by database
+   *     + `rikulo_orm.connection.password` - password used by database
    *        connection.
-   *     + `rikulo:orm.connection.poolsize` - connection pool size.
-   *     + `rikulo:orm.connection.isolation` - transaction isolation level.
-   *     + `rikulo:orm.connectino.autocommit` - enables autocommit for each
+   *     + `rikulo_orm.connection.poolsize` - connection pool size.
+   *     + `rikulo_orm.connection.isolation` - transaction isolation level.
+   *     + `rikulo_orm.connectino.autocommit` - enables autocommit for each
    *       transaction.
    *
    *   + SQL control
-   *     + `rikulo:orm.sql.fetchsize` - determine the sql statement fetch size.
-   *     + `rikulo:orm.sql.batchsize` - batch update size
+   *     + `rikulo_orm.sql.fetchsize` - determine the sql statement fetch size.
+   *     + `rikulo_orm.sql.batchsize` - batch update size
    *
    *   + Cache control:
-   *     + `rikulo:orm.cache.provider` - qualified class name of the custom
+   *     + `rikulo_orm.cache.provider` - qualified class name of the custom
    *       [CacheProvider]
-   *     + `rikulo:orm.cache.use_minimal_puts - optimize to minimize writes and
+   *     + `rikulo_orm.cache.use_minimal_puts - optimize to minimize writes and
    *       more frequently reads; useful for clustered caches.
    *
    *   + Transaction control:
-   *     + `rikulo:orm.transaction.factory` - qualified class name used to
+   *     + `rikulo_orm.transaction.factory` - qualified class name used to
    *       create custom [EntityTransaction].
    *
    *   + Other:
-   *     + `rikulo:orm.dialect` - dialect class name of the database system.
-   *     + `rikulo:orm.show_sql` - write SQL statement to console.
-   *     + `rikulo:orm.max_fetch_depth` - sets the maximum "depth" for outer
+   *     + `rikulo_orm.dialect` - dialect class name of the database system.
+   *     + `rikulo_orm.show_sql` - write SQL statement to console.
+   *     + `rikulo_orm.max_fetch_depth` - sets the maximum "depth" for outer
    *        join fetch for those single ended(one-to-one, many-to-one)
    *        associations.
-   *     + `rikulo:orm.default_batch_fetch_size` - default size of batch
+   *     + `rikulo_orm.default_batch_fetch_size` - default size of batch
    *        fetching.
-   *     + `rikulo:orm.order_updates` - whether do entity updates in the
+   *     + `rikulo_orm.order_updates` - whether do entity updates in the
    *        order of primary key.
    */
   static Future<EntityManagerFactory> createEntityManagerFactory(String name,

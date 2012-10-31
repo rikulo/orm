@@ -3,7 +3,7 @@
 // Author: hernichen
 
 /** Persistence transaction */
-interface EntityTransaction {
+abstract class EntityTransaction {
   /** Start a resource transaction */
   void begin();
 

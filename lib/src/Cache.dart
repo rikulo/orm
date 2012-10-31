@@ -3,7 +3,7 @@
 // Author: hernichen
 
 /** Handle 2nd-level cache for the persistence unit. */
-interface Cache {
+abstract class Cache {
   /** Returns whether the cache contains data for the specified dart type and
    * primary key
    */

@@ -1,6 +1,6 @@
 /** Utility for formating messages */
 class TextFormat {
-  static final RegExp rexp = const RegExp(r"{[A-Za-z0-9_]+}");
+  static const RegExp rexp = const RegExp(r"{[A-Za-z0-9_]+}");
   static String format(String txt, Map params) {
     StringBuffer sb = new StringBuffer();
     Iterable<Match> matches = rexp.allMatches(txt);

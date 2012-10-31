@@ -5,7 +5,7 @@
 /** Represents entity or mapped superclass types.
  *  + [X] - the represented entity or mapped superclass type.
  */
-interface IdentifiableType<X> extends ManagedType<X> {
+abstract class IdentifiableType<X> extends ManagedType<X> {
   /** Returns the field that corresponds to the id field declared by the
    *  entity or mapped superclass.
    */

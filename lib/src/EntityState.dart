@@ -3,20 +3,22 @@
 // Author: hernichen
 
 /** State of the entity managed by [EntityManager]. */
-class EntityState {
+class EntityState extends Enum {
   /** Enity has NO persistent identity and NOT associated with persistence context;
    *  i.e. pure dart object.
    */
-  static final int ENTITY_NEW = 0;
+  static const EntityState NEW = const EntityState("NEW", 0);
 
   /** Entity with persistent identity and associated with persistence context */
-  static final int ENTITY_MANAGED = 1;
+  static const EntityState MANAGED = const EntityState("MANAGED", 1);
 
   /** Entity with persistent identity and NOT associated with persistence context */
-  static final int ENTITY_DETACHED = 2;
+  static const EntityState DETACHED = const EntityState("DETACHED", 2);
 
   /** Entity with persistent identity and associated with persistence context and
    * scheduled for removal from the data store.
    */
-  static final int ENTITY_REMOVED = 3;
+  static const EntityState REMOVED = const EntityState("REMOVED", 3);
+
+  const EntityState(String name, int ordinal) : super(name, ordinal);
 }

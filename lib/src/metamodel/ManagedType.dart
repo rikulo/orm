@@ -5,7 +5,7 @@
 /** Enity, mapped superclass, embeddable types.
  *  + [X] - the represented type.
  */
-interface ManagedType<X> extends MetaType<X> {
+abstract class ManagedType<X> extends MetaType<X> {
   /** Returns the attribute of the managed type that corresponds to the
    * specified name.
    * + [name] - attribute name

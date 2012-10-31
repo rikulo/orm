@@ -5,7 +5,7 @@
 /** Utility used by [PersistenceUtil] to determine the load status of an
  * entity or entity attribute.
  */
-interface ProviderUtil {
+abstract class ProviderUtil {
   /** + Returns [LoadState].LOADED if specified entity and all fields marked as
    * [FetchType].EAGER been loaded.
    *  + Returns [LoadState].NOT_LOADED if specified entity and NOT all fields

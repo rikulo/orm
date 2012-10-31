@@ -6,4 +6,4 @@
  *  + [X] - the type of the represented [List] belongs to.
  *  + [E] - the element type of the represented [List].
  */
-interface ListAttribute<X,E> extends PluralAttribute<X,List<E>,E> {}
+abstract class ListAttribute<X,E> extends PluralAttribute<X,List<E>,E> {}

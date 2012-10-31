@@ -5,9 +5,9 @@
 /** Flush mode decides when to flush entities into db */
 class FlushModeType extends Enum {
   /** (default) flushing entity to db at query execution. */
-  static final FlushModeType AUTO = const FlushModeType("AUTO", 0);
+  static const FlushModeType AUTO = const FlushModeType("AUTO", 0);
   /** flushing entity to db at transaction commit. */
-  static final FlushModeType COMMIT = const FlushModeType("COMMIT", 1);
+  static const FlushModeType COMMIT = const FlushModeType("COMMIT", 1);
 
   const FlushModeType(String name, int ordinal) : super(name, ordinal);
 }

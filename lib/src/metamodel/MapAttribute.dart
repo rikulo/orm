@@ -7,7 +7,7 @@
  *  + [K] - the type of the key of the represented [Map].
  *  + [V] - the type of the value of the represented [Map].
  */
-interface MapAttribute<X,K,V> extends PluralAttribute<X,Map<K,V>,V> {
+abstract class MapAttribute<X,K,V> extends PluralAttribute<X,Map<K,V>,V> {
   /** Returns the dart type of the Map key */
   ClassMirror getKeyDartType();
 

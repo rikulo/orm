@@ -6,4 +6,4 @@
  *  + [X] - The type of the represented [Collection] belongs to.
  *  + [E] - The element type of the represented [Collection].
  */
-interface CollectionAttribute<X,E> extends PluralAttribute<X,Collection<E>,E> {}
+abstract class CollectionAttribute<X,E> extends PluralAttribute<X,Collection<E>,E> {}
