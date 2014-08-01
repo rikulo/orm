@@ -2,6 +2,8 @@
 //History: Tue, Aug 21, 2012  12:44:28 PM
 // Author: hernichen
 
+part of rikulo_orm;
+
 /** Specifies whether a transaction-scoped or extended persistence context is
  * used in PersistenceContext.
  */

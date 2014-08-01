@@ -2,6 +2,8 @@
 //History: Wed, Aug 22, 2012  04:40:39 PM
 // Author: hernichen
 
+part of rikulo_orm_criteria;
+
 /** Used to build general `case` expression.
  *  + [R] - the type of this case expression.
  */

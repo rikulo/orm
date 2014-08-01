@@ -2,6 +2,8 @@
 //History: Tue, Aug 21, 2012  1:33:44 PM
 // Author: hernichen
 
+part of rikulo_orm;
+
 /** Parameter used in Query.
  *  + [T] - the type of this parameter.
  */

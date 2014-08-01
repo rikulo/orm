@@ -2,6 +2,8 @@
 //History: Tue, Aug 21, 2012  06:46:34 PM
 // Author: hernichen
 
+part of rikulo_orm_criteria;
+
 /** An join to an entity, embeddable, or basic type.
  * + [Z] - the source type of this [Join].
  * + [X] - the target type of the [Join].

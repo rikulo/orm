@@ -1,7 +1,7 @@
 //example "stolen" from http://www.html5rocks.com/en/tutorials/webdatabase/todo/
-#import("dart:html");
+import "dart:html";
 
-Database db;
+SqlDatabase db;
 
 open([Function callback]) {
   int dbSize = 5 * 1024 * 1024; //5MB
@@ -16,7 +16,7 @@ createTable([Function callback]) {
 
 addTodo(String todoText) {
   db.transaction((tx) {
-    Date addedOn = new Date.now();
+    DateTime addedOn = new DateTime.now();
     tx.executeSql("INSERT INTO todo(todo, added_on) VALUES(?,?)",
         [todoText, addedOn],
         onSuccess, onError);

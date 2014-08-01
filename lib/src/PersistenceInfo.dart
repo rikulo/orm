@@ -2,6 +2,8 @@
 //History: Thu, Aug 16, 2012  08:12:28 AM
 // Author: hernichen
 
+part of rikulo_orm;
+
 /** Reflection of a Persistence.xml file that contains multiple PersistenceUnit
  * (see [PersistenceUnitInfo]).
  */

@@ -2,6 +2,8 @@
 //History: Wed, Aug 22, 2012  07:03:44 PM
 // Author: hernichen
 
+part of rikulo_orm;
+
 /** Base persistence exception */
 class PersistenceException implements Exception {
   /** Exception message */

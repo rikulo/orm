@@ -1,3 +1,5 @@
+part of rikulo_orm;
+
 /** Defines the cascadable operations that propagated to referred entity */
 class CascadeType extends  Enum {
   static const CascadeType ALL = const CascadeType("ALL", 0);

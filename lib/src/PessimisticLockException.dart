@@ -2,6 +2,8 @@
 //History: Thu, Aug 23, 2012  10:15:12 AM
 // Author: hernichen
 
+part of rikulo_orm;
+
 /** + Thrown by the persistence provider when an Pessimistic locking conflict
  *  occurs.
  *

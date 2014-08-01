@@ -1,3 +1,5 @@
+part of rikulo_orm_impl;
+
 //Copyright (C) 2012 Potix Corporation. All Rights Reserved.
 //History: Fri, Aug 31, 2012  01:03:13 PM
 // Author: hernichen

@@ -1,6 +1,7 @@
 //Copyright (C) 2012 Potix Corporation. All Rights Reserved.
 //History: Thu, Mar 23, 2012 03:45:13 PM
 // Author: henrichen
+part of rikulo_orm_impl;
 
 class PersistenceProviderImpl implements PersistenceProvider {
   static String _PROVIDER_NAME = "rikulo:orm/spi/impl.PersistenceProviderImpl";
@@ -37,7 +38,7 @@ class PersistenceProviderImpl implements PersistenceProvider {
 
   //TODO(henri)
   ProviderUtil getProviderUtil() {
-    throw const NotImplementedException("getProviderUtil");
+    throw new UnimplementedError("getProviderUtil");
   }
 
   Future<EntityManagerFactory> _createEntityManagerFactory0(

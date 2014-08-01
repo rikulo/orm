@@ -1,5 +1,5 @@
-#library("Test:Test0");
-#import("dart:mirrors");
+//#library("Test:Test0");
+import "dart:mirrors" ;
 
 class Test<X> {
   X abc;

@@ -2,6 +2,8 @@
 //History: Wed, Aug 22, 2012  07:27:14 PM
 // Author: hernichen
 
+part of rikulo_orm;
+
 /** + Thrown by persistence provider when entity reference obtained by
  * [EntityManager].getReference is accessed but the entity does not exist.
  *

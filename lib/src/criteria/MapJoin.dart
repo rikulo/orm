@@ -2,6 +2,8 @@
 //History: Tue, Aug 21, 2012  07:01:14 PM
 // Author: hernichen
 
+part of rikulo_orm_criteria;
+
 /** Collection joins to [Map] class.
  *  + [Z] - the source type of the join.
  *  + [K] - the type of the target Map key.

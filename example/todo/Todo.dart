@@ -1,5 +1,7 @@
 //Stolen example from http://docs.jboss.org/hibernate/orm/4.1/manual/en-US/html_single/#tutorial-firstapp
-#import("../../orm/orm.dart");
+import "../../lib/orm.dart";
+import "dart:async";
+//import 'lib/orm.dart';
 
 //@Entity
 //@Table(name = "EVENTS")
@@ -13,20 +15,20 @@ class Event {
 
   //@Temporal(TemporalType.TIMESTAMP)
   //@Column(name = "EVENT_DATE")
-  Date date;
+  DateTime date;
 
   Event(this.title, this.date);
 }
 
 Future<bool> saveEvent(EntityManager em, Transaction tx) {
-  return em.persist( new Event("Our very first event!", new Date()))
-    .chain((success) => em.persist( new Event("A follow up event", new Date())))
+  return em.persist( new Event("Our very first event!", new DateTime.now()))
+    .chain((success) => em.persist( new Event("A follow up event", new DateTime.now())))
     .chain((success) => em.close());
 }
 
 Future<List<Event>> getEvents(EntityManager em, EntityTransaction tx) {
   Future<List<Event>> eventsfr = em.createQuery("from Event", "Event").getResultList();
-  eventsfr.chain((events) {results = events; return em.close()})
+  eventsfr.chain((events) {var results = events; return em.close();})
     .then((success) => );
   return events; //return events in list
 }

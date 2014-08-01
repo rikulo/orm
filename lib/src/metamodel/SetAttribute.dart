@@ -1,3 +1,5 @@
+part of rikulo_orm_metamodel;
+
 //Copyright (C) 2012 Potix Corporation. All Rights Reserved.
 //History: Mon, Sep 03, 2012  06:52:36 PM
 // Author: hernichen

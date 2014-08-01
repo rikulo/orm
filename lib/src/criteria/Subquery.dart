@@ -2,6 +2,8 @@
 //History: Tue, Aug 21, 2012  07:19:34 PM
 // Author: hernichen
 
+part of rikulo_orm_criteria;
+
 /** Defines functions that work with subqueries.
  *  + [T] - the type of the selection item.
  */

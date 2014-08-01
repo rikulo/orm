@@ -2,6 +2,8 @@
 //History: Tue, Aug 21, 2012  02:41:38 PM
 // Author: hernichen
 
+part of rikulo_orm_criteria;
+
 /** Defines functions to top-level query and subqueryQuery execution.
  *   + [T] - teh type of the query result.
  */

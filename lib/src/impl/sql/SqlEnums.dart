@@ -1,3 +1,5 @@
+part of rikulo_orm_impl;
+
 
 /** Used with SqlToken.TABLE_DEF */
 class ScopeEnum extends Enum {

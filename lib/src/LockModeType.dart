@@ -2,6 +2,8 @@
 //History: Wed, Aug 15, 2012  07:37:23 PM
 // Author: hernichen
 
+part of rikulo_orm;
+
 /** LockMode of Entity */
 class LockModeType extends Enum {
   static const LockModeType NONE = const LockModeType("NONE", 0);

@@ -1,3 +1,5 @@
+part of rikulo_orm_impl;
+
 //Copyright (C) 2012 Potix Corporation. All Rights Reserved.
 //History: Fri, Aug 31, 2012  11:03:45 AM
 // Author: hernichen
@@ -49,12 +51,12 @@ class EntityManagerFactoryImpl implements EntityManagerFactory {
    */
   //TODO(henri): not support Criteria yet.
   CriteriaBuilder getCriteriaBuilder() {
-    throw const NotImplementedException("getCriteriaBuilder");
+    throw new UnimplementedError("getCriteriaBuilder");
   }
 
   /** Returns the cache that is associated with this [entityMangerFactory] */
   //TODO(henri): not implemented cache yet.
   Cache getCache() {
-    throw const NotImplementedException("getCache");
+    throw new UnimplementedError("getCache");
   }
 }

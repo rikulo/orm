@@ -4,6 +4,7 @@
 library rikulo_orm_spi;
 
 import "dart:mirrors";
+import "dart:async";
 import "orm.dart";
 import "impl.dart";
 

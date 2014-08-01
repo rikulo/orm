@@ -2,6 +2,8 @@
 //History: Tue, Aug 21, 2012  04:34:10 PM
 // Author: hernichen
 
+part of rikulo_orm_criteria;
+
 /** Query roots that refer to entities
  *  + [X] - the entity type referenced by this root.
  */

@@ -2,6 +2,8 @@
 //History: Tue, Aug 21, 2012  04:34:10 PM
 // Author: hernichen
 
+part of rikulo_orm_criteria;
+
 /** Defines the join types */
 class JoinType extends Enum {
   static const JoinType INNER = const JoinType("INNER", 0);

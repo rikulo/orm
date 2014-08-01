@@ -3,8 +3,12 @@
 // Author: hernichen
 //TODO JPA spec. ref http://docs.oracle.com/javaee/6/api/index.html?javax/persistence/Entity.html
 
+part of rikulo_orm;
+
 /** Marker interface for persistence annotation */
-class Annotation {}
+class Annotation {
+  const Annotation();
+}
 
 /** For field/class: Attribute access type: FIELD | PROPERTY */
 //@Target(value:{"FIELD", "TYPE"})

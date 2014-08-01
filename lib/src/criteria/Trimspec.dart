@@ -2,6 +2,8 @@
 //History: Tue, Aug 21, 2012  04:34:10 PM
 // Author: hernichen
 
+part of rikulo_orm_criteria;
+
 /** Specifies how String are trimmed.  */
 class Trimspec extends Enum {
   static const Trimspec BOTH = const Trimspec("BOTH", 0);

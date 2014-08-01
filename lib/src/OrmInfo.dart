@@ -2,6 +2,8 @@
 //History: Wed, Aug 15, 2012  04:06:45 PM
 // Author: hernichen
 
+part of rikulo_orm;
+
 /** Reflection of an orm.xml file that contains object/relational mapping
  * information.
  */

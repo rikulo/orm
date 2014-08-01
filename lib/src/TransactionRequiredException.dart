@@ -1,6 +1,8 @@
 //History: Wed, Aug 22, 2012  07:40:52 PM
 // Author: hernichen
 
+part of rikulo_orm;
+
 /** + Thrown by the persistence provider when a transaction is required ut
  * is not active.
  */

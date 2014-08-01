@@ -1,8 +1,10 @@
+part of rikulo_orm_impl;
+
 //Copyright (C) 2012 Potix Corporation. All Rights Reserved.
 //History: Mon, Sep 03, 2012  06:52:36 PM
 // Author: hernichen
 
-class CollectionAttributeImpl<X,E> extends PluralAttributeImpl<X,Collection<E>,E>
+class CollectionAttributeImpl<X,E> extends PluralAttributeImpl<X,List<E>,E>
 implements CollectionAttribute<X,E> {
 
   CollectionAttributeImpl(String name, ManagedTypeImpl declaredType,

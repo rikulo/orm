@@ -1,3 +1,5 @@
+part of rikulo_orm_impl;
+
 //Copyright (C) 2012 Potix Corporation. All Rights Reserved.
 //History: Wed, Aug 15, 2012  07:13:37 PM
 // Author: hernichen
@@ -45,7 +47,7 @@ class MetamodelImpl implements Metamodel {
   EmbeddableType embeddable(ClassMirror cls) {
     EmbeddableType embed = _embeddables[cls];
     if (embed == null)
-      throw const IllegalArgumentException("cls");
+      throw new ArgumentError("cls");
     return embed;
   }
 
@@ -53,7 +55,7 @@ class MetamodelImpl implements Metamodel {
   EntityType entity(ClassMirror cls) {
     EntityType entity = _entities[cls];
     if (entity == null)
-      throw const IllegalArgumentException("cls");
+      throw new ArgumentError("cls");
     return entity;
   }
 
@@ -67,7 +69,7 @@ class MetamodelImpl implements Metamodel {
       return embed;
     MappedSuperclassType mapped = _mappedSupers[cls];
     if (mapped == null)
-      throw const IllegalArgumentException("cls");
+      throw new ArgumentError("cls");
     return mapped;
   }
 

@@ -2,6 +2,8 @@
 //History: Tue, Aug 21, 2012  04:02:41 PM
 // Author: hernichen
 
+part of rikulo_orm_criteria;
+
 /** Defines an item that is to be returned.
  *  + [X] - the type of the selection item.
  */

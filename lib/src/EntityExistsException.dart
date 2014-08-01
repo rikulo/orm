@@ -2,6 +2,8 @@
 //History: Wed, Aug 22, 2012  07:17:14 PM
 // Author: hernichen
 
+part of rikulo_orm;
+
 /** Thrown by persistence provider when [EntityManager].persist() is called
  * and entity already exists.
  *

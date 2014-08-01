@@ -2,6 +2,8 @@
 //History: Tue, Aug 21, 2012  12:44:28 PM
 // Author: hernichen
 
+part of rikulo_orm;
+
 /** How the EntityManager handle 2nd-level cache when read from
  * database(by find or queries).
  */

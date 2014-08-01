@@ -1,5 +1,7 @@
 //example "stolen" from http://www.html5rocks.com/en/tutorials/indexeddb/todo/
-#import("dart:html");
+import "dart:html";
+import "dart:async";
+import "dart:indexed_db";
 
 IDBDatabase db;
 
@@ -15,7 +17,7 @@ bool contains(List<String> stores, String name) {
 }
 
 open() {
-  IDBFactory indexedDB = window.indexedDB;
+  IdbFactory indexedDB = window.indexedDB;
   IDBRequest req = indexedDB.open("todos");
   req.on.success.add((evt) {
     var v = "1.99";

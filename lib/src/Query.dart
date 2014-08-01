@@ -2,6 +2,8 @@
 //History: Tue, Aug 21, 2012  02:41:38 PM
 // Author: hernichen
 
+part of rikulo_orm;
+
 /** Query execution.
  * + [X] - query result type.
  */
@@ -70,19 +72,19 @@ abstract class Query<X> {
   Query<X> setLockMode(LockModeType lockMode);
 
   /** Bind a date to a positional [Parameter] as specified SQL temporal type. */
-  Query<X> setTemporalParameterByPosition(int position, Date value, TemporalType temporalType);
+  Query<X> setTemporalParameterByPosition(int position, DateTime value, TemporalType temporalType);
 
   /** Bind an argument to a postional [Parameter]. */
   Query<X> setParameterByPosition(int position, var value);
 
   /** Bind a date to a named [Parameter] as specified SQL temporal type. */
-  Query<X> setTemporalParameterByName(int position, Date value, TemporalType temporalType);
+  Query<X> setTemporalParameterByName(int position, DateTime value, TemporalType temporalType);
 
   /** Bind an argument to a named [Parameter]. */
   Query<X> setParameterByName(int position, var value);
 
   /** Bind a date to the specified [Parameter] as specified SQL temporal type. */
-  Query<X> setTemporalParameter(Parameter param, Date value, TemporalType temporalType);
+  Query<X> setTemporalParameter(Parameter param, DateTime value, TemporalType temporalType);
 
   /** Bind an argument to the specified [Parameter]. */
   Query<X> setParameter(Parameter param, var value);

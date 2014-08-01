@@ -2,14 +2,16 @@
 //History: Tue, Aug 21, 2012  04:37:34 PM
 // Author: hernichen
 
+part of rikulo_orm_criteria;
+
 /** Query roots that refer to entities */
 abstract class QueryPath<X> extends Expression<X> {
   /** Create a path corresponding to the referenced map-valued attribute.*/
   Expression<Map> getMapPath(MapAttribute<X,dynamic,dynamic> map);
 
   /** Create a path corresponding to the referenced collection-valued attribute. */
-  Expression<Collection> getPluralPath(
-      PluralAttribute<X,Collection<dynamic>,dynamic> collection);
+  Expression<List> getPluralPath(
+      PluralAttribute<X,List<dynamic>,dynamic> collection);
 
   /** Create a path corresponding to the referenced single-valued attribute. */
   QueryPath getSingularPath(SingularAttribute<X,dynamic> attribute);

@@ -2,6 +2,8 @@
 //History: Thu, Aug 16, 2012  03:21:45 PM
 // Author: hernichen
 
+part of rikulo_orm;
+
 /** Defines the types of entity inheritance strategies. */
 class InheritanceType extends Enum {
   static const InheritanceType JOINED = const InheritanceType("JOINED", 0);

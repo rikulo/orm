@@ -5,6 +5,7 @@ library rikulo_orm_metamodel;
 
 import "dart:mirrors";
 import "orm.dart";
+import "dart:collection";
 
 //Interfaces
 part "src/metamodel/Attribute.dart";

@@ -2,6 +2,8 @@
 //History: Thu, Aug 16, 2012  03:21:45 PM
 // Author: hernichen
 
+part of rikulo_orm;
+
 /** Defines the types for primary key generation strategies. */
 class GenerationType extends Enum {
   static const GenerationType AUTO = const GenerationType("AUTO", 0);

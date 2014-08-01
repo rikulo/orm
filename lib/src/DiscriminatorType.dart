@@ -2,6 +2,8 @@
 //History: Mon, Aug 20, 2012  11:05:06 AM
 // Author: hernichen
 
+part of rikulo_orm;
+
 /** Used to ditinguish the type of the [DiscriminatorColumn]. */
 class DiscriminatorType extends Enum {
   static const DiscriminatorType CHAR = const DiscriminatorType("CHAR", 0);

@@ -1,3 +1,5 @@
+part of rikulo_orm_impl;
+
 
 class SqlToken extends Enum {
   static const SqlToken TABLE_DEF = const SqlToken("TABLE_DEF", 0);

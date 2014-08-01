@@ -2,6 +2,8 @@
 //History: Tue, Aug 21, 2012  12:44:28 PM
 // Author: hernichen
 
+part of rikulo_orm;
+
 /** Transaction mode when the EntityManager starts a transaction */
 class TransactionModeType extends Enum {
   static const TransactionModeType READ_ONLY

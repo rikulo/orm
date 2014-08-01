@@ -4,8 +4,8 @@
 library rikulo_orm;
 
 import "dart:core";
-import "dart:io";
 import "dart:mirrors";
+import "dart:async";
 
 import "metamodel.dart";
 import "criteria.dart";

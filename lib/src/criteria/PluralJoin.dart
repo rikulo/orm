@@ -2,6 +2,8 @@
 //History: Tue, Aug 21, 2012  06:46:34 PM
 // Author: hernichen
 
+part of rikulo_orm_criteria;
+
 /** Base joins to all collection types.
  *  + [Z] - the source type.
  *  + [C] - the collection type.

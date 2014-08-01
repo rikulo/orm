@@ -2,6 +2,8 @@
 //History: Mon, Aug 29, 2012  03:08:13 PM
 // Author: hernichen
 
+part of rikulo_orm;
+
 class TransactionType extends PersistenceUnitTransactionType {
   /** JTA entity manager will be created */
   static const TransactionType JTA =

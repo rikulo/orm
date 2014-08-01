@@ -3,8 +3,10 @@
 // Author: henrichen
 library rikulo_orm_impl;
 
-import "dart:coreimpl";
+import "dart:core";
 import "dart:mirrors";
+import "dart:async";
+import "dart:collection";
 import 'package:rikulo_commons/util.dart';
 import 'package:rikulo_commons/mirrors.dart';
 
@@ -26,8 +28,8 @@ part "src/impl/PersistenceUnitUtilImpl.dart";
 part "src/impl/EntityInfo.dart";
 
 //spi
-part "src/impl/spi/persistenceProviderImpl.dart";
-part "src/impl/spi/persistenceUnitInfoImpl.dart";
+part "src/impl/spi/PersistenceProviderImpl.dart";
+part "src/impl/spi/PersistenceUnitInfoImpl.dart";
 
 //metamodel
 part "src/impl/metamodel/MetamodelImpl.dart";

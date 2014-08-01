@@ -2,6 +2,8 @@
 //History: Mon, Aug 13, 2012  01:14:23 PM
 // Author: hernichen
 
+part of rikulo_orm;
+
 /** Persistence transaction */
 abstract class EntityTransaction {
   /** Start a resource transaction */

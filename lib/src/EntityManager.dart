@@ -2,6 +2,8 @@
 //History: Mon, Aug 13, 2012  10:23:06 AM
 // Author: hernichen
 
+part of rikulo_orm;
+
 /** Track entities with a persistence context */
 abstract class EntityManager {
   /** Start a transaction in a seperate thread and execute the exec function.

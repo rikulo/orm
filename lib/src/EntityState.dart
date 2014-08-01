@@ -2,6 +2,8 @@
 //History: Mon, Aug 13, 2012  10:57:23 AM
 // Author: hernichen
 
+part of rikulo_orm;
+
 /** State of the entity managed by [EntityManager]. */
 class EntityState extends Enum {
   /** Enity has NO persistent identity and NOT associated with persistence context;

@@ -2,6 +2,8 @@
 //History: Thu, Aug 23, 2012  10:18:07 AM
 // Author: hernichen
 
+part of rikulo_orm;
+
 /** + Thrown by the persistence provider when a query times out and only the
  * query statement is rolled back.
  *

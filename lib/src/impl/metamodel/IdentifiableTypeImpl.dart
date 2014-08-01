@@ -1,3 +1,5 @@
+part of rikulo_orm_impl;
+
 //Copyright (C) 2012 Potix Corporation. All Rights Reserved.
 //History: Fri, Aug 31, 2012  05:24:41 PM
 // Author: hernichen
@@ -39,10 +41,10 @@ class IdentifiableTypeImpl<X> extends ManagedTypeImpl<X>
    */
   SingularAttribute<X,dynamic> getDeclaredId(ClassMirror type) {
     if (_idClass != null)
-      throw const IllegalArgumentException(type);
+      throw new ArgumentError(type);
     SingularAttribute<X,dynamic> idAttr = _getDeclaredId0(type);
     if (idAttr == null)
-      throw const IllegalArgumentException(type);
+      throw new ArgumentError(type);
     return idAttr;
   }
   SingularAttribute<X,dynamic> _getDeclaredId0(ClassMirror type) {
@@ -58,7 +60,7 @@ class IdentifiableTypeImpl<X> extends ManagedTypeImpl<X>
   SingularAttribute<X,dynamic> getDeclaredVersion(ClassMirror type) {
     SingularAttribute<X,dynamic> verAttr = _getDeclaredVersion0(type);
     if (verAttr == null)
-      throw const IllegalArgumentException(type);
+      throw new ArgumentError(type);
     return verAttr;
   }
   SingularAttribute<X,dynamic> _getDeclaredVersion0(ClassMirror type) {
@@ -80,7 +82,7 @@ class IdentifiableTypeImpl<X> extends ManagedTypeImpl<X>
       if (superIdent != null)
         return superIdent.getId(type);
     }
-    throw const IllegalArgumentException(type);
+    throw new ArgumentError(type);
   }
 
   /** Returns the attributes that corresponding to the id classes */
@@ -115,7 +117,7 @@ class IdentifiableTypeImpl<X> extends ManagedTypeImpl<X>
       if (superIdent != null)
         return superIdent.getVersion(type);
     }
-    throw const IllegalArgumentException(type);
+    throw new ArgumentError(type);
   }
 
   /** Returns wheather the identifiable type has a single id field. */
