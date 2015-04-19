@@ -7,11 +7,11 @@ part of rikulo_orm_spi;
 /** Load states returned by the [ProviderUtil]. */
 class LoadState extends Enum {
   /** The element has been loaded */
-  static const LoadState LOADED = const LoadState("LOADED", 0);
+  static const LoadState LOADED = const LoadState("LOADED");
   /** The element has not been loaded */
-  static const LoadState NOT_LOADED = const LoadState("NOT_LOADED", 1);
+  static const LoadState NOT_LOADED = const LoadState("NOT_LOADED");
   /** The loading state of the element is unknown */
-  static const LoadState UNKNOWN = const LoadState("UNKNOWN", 2);
+  static const LoadState UNKNOWN = const LoadState("UNKNOWN");
 
-  const LoadState(String name, int ordinal) : super(name, ordinal);
+  const LoadState(String name) : super(name);
 }

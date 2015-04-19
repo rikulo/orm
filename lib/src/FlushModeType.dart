@@ -7,9 +7,9 @@ part of rikulo_orm;
 /** Flush mode decides when to flush entities into db */
 class FlushModeType extends Enum {
   /** (default) flushing entity to db at query execution. */
-  static const FlushModeType AUTO = const FlushModeType("AUTO", 0);
+  static const FlushModeType AUTO = const FlushModeType("AUTO");
   /** flushing entity to db at transaction commit. */
-  static const FlushModeType COMMIT = const FlushModeType("COMMIT", 1);
+  static const FlushModeType COMMIT = const FlushModeType("COMMIT");
 
-  const FlushModeType(String name, int ordinal) : super(name, ordinal);
+  const FlushModeType(String name) : super(name);
 }

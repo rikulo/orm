@@ -6,9 +6,9 @@ part of rikulo_orm;
 
 /** Defines the types of entity inheritance strategies. */
 class InheritanceType extends Enum {
-  static const InheritanceType JOINED = const InheritanceType("JOINED", 0);
-  static const InheritanceType SINGLE_TABLE = const InheritanceType("SINGLE_TABLE", 1);
-  static const InheritanceType TABLE_PER_CLASS = const InheritanceType("TABLE_PER_CLASS", 2);
+  static const InheritanceType JOINED = const InheritanceType("JOINED");
+  static const InheritanceType SINGLE_TABLE = const InheritanceType("SINGLE_TABLE");
+  static const InheritanceType TABLE_PER_CLASS = const InheritanceType("TABLE_PER_CLASS");
 
-  const InheritanceType(String name, int ordinal) : super(name, ordinal);
+  const InheritanceType(String name) : super(name);
 }

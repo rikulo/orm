@@ -8,8 +8,8 @@ part of rikulo_orm;
  * used in PersistenceContext.
  */
 class PersistenceContextType extends Enum {
-  static const PersistenceContextType EXTENDED = const PersistenceContextType("EXTENDED", 0);
-  static const PersistenceContextType TRANSACTION = const PersistenceContextType("TRANSACTION", 1);
+  static const PersistenceContextType EXTENDED = const PersistenceContextType("EXTENDED");
+  static const PersistenceContextType TRANSACTION = const PersistenceContextType("TRANSACTION");
 
-  const PersistenceContextType(String name, int ordinal) : super(name, ordinal);
+  const PersistenceContextType(String name) : super(name);
 }

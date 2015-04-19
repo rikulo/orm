@@ -6,9 +6,9 @@ part of rikulo_orm;
 
 /** How the EntityManager handle 2nd-level cache for the persistence unit. */
 class ValidationMode extends Enum {
-  static const ValidationMode AUTO = const ValidationMode("AUTO", 0);
-  static const ValidationMode CALLBACK = const ValidationMode("CALLBACK", 1);
-  static const ValidationMode NONE = const ValidationMode("NONE", 2);
+  static const ValidationMode AUTO = const ValidationMode("AUTO");
+  static const ValidationMode CALLBACK = const ValidationMode("CALLBACK");
+  static const ValidationMode NONE = const ValidationMode("NONE");
 
-  const ValidationMode(String name, int ordinal) : super(name, ordinal);
+  const ValidationMode(String name) : super(name);
 }

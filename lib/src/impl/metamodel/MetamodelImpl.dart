@@ -127,7 +127,7 @@ class MetamodelImpl implements Metamodel {
       }
       else if (annt is Embeddable)
         pType = PersistenceType.EMBEDDABLE;
-      else if (annt is MappedSuperclass)
+      else if (annt is _MappedSuperclass)
         pType = PersistenceType.MAPPED_SUPERCLASS;
       else if (annt is Access)
         aType = annt.access;
@@ -404,7 +404,7 @@ class MetamodelImpl implements Metamodel {
           jColumns = annt.joinColumns;
         else if (annt is JoinTable)
           jTable = annt;
-        else if (annt is Lob)
+        else if (annt is _Lob)
           lob = true;
         else if (annt is ManyToMany) {
           association = true;

@@ -5,8 +5,12 @@
 part of rikulo_orm;
 
 /** Enum base class */
-class Enum {
+abstract class Enum {
   final String name;
-  final int ordinal;
-  const Enum(this.name, this.ordinal);
+  
+  static const List<Enum> values = const [];
+  
+  Enum valueOf(String name) => values.singleWhere((val) => val.name == name);
+  
+  const Enum(this.name);
 }

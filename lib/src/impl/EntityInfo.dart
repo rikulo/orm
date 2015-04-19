@@ -6,6 +6,6 @@ part of rikulo_orm_impl;
 
 /** Entity persistence context info */
 class EntityInfo {
-  LockModeType lockMode;
+  LockMode lockMode;
   //TODO(henri)
 }

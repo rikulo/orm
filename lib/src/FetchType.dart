@@ -6,8 +6,8 @@ part of rikulo_orm;
 
 /** Strategy when fetch referenced entities */
 class FetchType extends Enum {
-  static const FetchType EAGER = const FetchType("EAGER", 0);
-  static const FetchType LAZY = const FetchType("LAZY", 1);
+  static const FetchType EAGER = const FetchType("EAGER");
+  static const FetchType LAZY = const FetchType("LAZY");
 
-  const FetchType(String name, int ordinal) : super(name, ordinal);
+  const FetchType(String name) : super(name);
 }

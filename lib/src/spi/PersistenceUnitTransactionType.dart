@@ -8,6 +8,6 @@ part of rikulo_orm_spi;
  * a JTA or resource-local entity managers.
  */
 class PersistenceUnitTransactionType extends Enum {
-  const PersistenceUnitTransactionType(String name, int ordinal)
-      : super(name, ordinal);
+  const PersistenceUnitTransactionType(String name)
+      : super(name);
 }

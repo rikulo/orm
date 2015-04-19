@@ -6,10 +6,10 @@ part of rikulo_orm;
 
 /** Defines the types for primary key generation strategies. */
 class GenerationType extends Enum {
-  static const GenerationType AUTO = const GenerationType("AUTO", 0);
-  static const GenerationType IDENTITY = const GenerationType("IDENTITY", 1);
-  static const GenerationType SEQUENCE = const GenerationType("SEQUENCE", 2);
-  static const GenerationType TABLE = const GenerationType("TABLE", 3);
+  static const GenerationType AUTO = const GenerationType("AUTO");
+  static const GenerationType IDENTITY = const GenerationType("IDENTITY");
+  static const GenerationType SEQUENCE = const GenerationType("SEQUENCE");
+  static const GenerationType TABLE = const GenerationType("TABLE");
 
-  const GenerationType(String name, int ordinal) : super(name, ordinal);
+  const GenerationType(String name) : super(name);
 }

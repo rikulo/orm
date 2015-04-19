@@ -5,15 +5,15 @@
 part of rikulo_orm;
 
 /** LockMode of Entity */
-class LockModeType extends Enum {
-  static const LockModeType NONE = const LockModeType("NONE", 0);
-  static const LockModeType OPTIMISTIC = const LockModeType("OPTIMISTIC", 1);
-  static const LockModeType OPTIMISTIC_FORCE_INCREMENT = const LockModeType("OPTIMISTIC_FORCE_INCREMENT", 2);
-  static const LockModeType PESSIMISTIC_FORCE_INCREMENT = const LockModeType("PESSIMISTIC_FORCE_INCREMENT", 3);
-  static const LockModeType PESSIMISTIC_READ = const LockModeType("PESSIMISTIC_READ", 4);
-  static const LockModeType PESSIMISTIC_WRITE = const LockModeType("PESSIMISTIC_WRITE", 5);
-  static const LockModeType READ = const LockModeType("READ", 6);
-  static const LockModeType WRITE = const LockModeType("WRITE", 7);
-
-  const LockModeType(String name, int ordinal) : super(name, ordinal);
+class LockMode extends Enum {
+  static const LockMode NONE = const LockMode("NONE");
+  static const LockMode OPTIMISTIC = const LockMode("OPTIMISTIC");
+  static const LockMode OPTIMISTIC_FORCE_INCREMENT = const LockMode("OPTIMISTIC_FORCE_INCREMENT");
+  static const LockMode PESSIMISTIC_FORCE_INCREMENT = const LockMode("PESSIMISTIC_FORCE_INCREMENT");
+  static const LockMode PESSIMISTIC_READ = const LockMode("PESSIMISTIC_READ");
+  static const LockMode PESSIMISTIC_WRITE = const LockMode("PESSIMISTIC_WRITE");
+  static const LockMode READ = const LockMode("READ");
+  static const LockMode WRITE = const LockMode("WRITE");
+  
+  const LockMode(String name) : super(name);
 }

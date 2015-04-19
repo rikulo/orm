@@ -6,9 +6,9 @@ part of rikulo_orm;
 
 /** How the EntityManager handle 2nd-level cache when store into database. */
 class CacheStoreMode extends Enum {
-  static const CacheStoreMode BYPASS = const CacheStoreMode("BYPASS", 0);
-  static const CacheStoreMode REFRESH = const CacheStoreMode("REFRESH", 1);
-  static const CacheStoreMode USE = const CacheStoreMode("USE", 2);
+  static const CacheStoreMode BYPASS = const CacheStoreMode("BYPASS");
+  static const CacheStoreMode REFRESH = const CacheStoreMode("REFRESH");
+  static const CacheStoreMode USE = const CacheStoreMode("USE");
 
-  const CacheStoreMode(String name, int ordinal) : super(name, ordinal);
+  const CacheStoreMode(String name) : super(name);
 }

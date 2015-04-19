@@ -161,7 +161,7 @@ class SqlGenerator {
    * + {cols} - columns defintion
    * + {nosort} - NOSORT | REVERSE
    */
-  String getCreateIndexTemplate_()
+  String get CreateIndexTemplate
     => "CREATE {unique} INDEX {idx} ON {tb} ADD INDEX({cols})";
 
   /** Returns the template string for defining a table foreign key.

@@ -9,7 +9,7 @@ part of rikulo_orm_metamodel;
  * element.
  */
 //@Target(value:"TYPE")
-class StaticMetamodel extends Annotation {
+class StaticMetamodel {
   final String className;
 
   const StaticMetamodel(this.className);

@@ -6,9 +6,9 @@ part of rikulo_orm_metamodel;
 
 /** Bindable type. */
 class BindableType extends Enum {
-  static const BindableType ENTITY_TYPE = const BindableType("ENTITY_TYPE", 0);
-  static const BindableType PLURAL_ATTRIBUTE = const BindableType("PLURAL_ATTRIBUTE", 1);
-  static const BindableType SINGULAR_ATTRIBUTE = const BindableType("SINGULAR_ATTRIBUTE", 2);
+  static const BindableType ENTITY_TYPE = const BindableType("ENTITY_TYPE");
+  static const BindableType PLURAL_ATTRIBUTE = const BindableType("PLURAL_ATTRIBUTE");
+  static const BindableType SINGULAR_ATTRIBUTE = const BindableType("SINGULAR_ATTRIBUTE");
 
-  const BindableType(String name, int ordinal) : super(name, ordinal);
+  const BindableType(String name) : super(name);
 }

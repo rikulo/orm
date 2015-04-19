@@ -18,7 +18,7 @@ class SqlTypeMapping {
       }
       return replace(scripts[0], size, precision, scale);
     }
-    throw new PersistenceException("Cannot find proper mapping for SqlType: ${sqlType.name}");
+    throw new PersistenceException("Cannot find proper mapping for SqlType: ${sqlType}");
   }
 
   /** Map SqlType to sql script with an optional capacity.

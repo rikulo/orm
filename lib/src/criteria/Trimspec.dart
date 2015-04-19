@@ -6,9 +6,9 @@ part of rikulo_orm_criteria;
 
 /** Specifies how String are trimmed.  */
 class Trimspec extends Enum {
-  static const Trimspec BOTH = const Trimspec("BOTH", 0);
-  static const Trimspec LEADING = const Trimspec("LEADING", 1);
-  static const Trimspec TRAILING = const Trimspec("TRAILING", 2);
+  static const Trimspec BOTH = const Trimspec("BOTH");
+  static const Trimspec LEADING = const Trimspec("LEADING");
+  static const Trimspec TRAILING = const Trimspec("TRAILING");
 
-  const Trimspec(String name, int ordinal) : super(name, ordinal);
+  const Trimspec(String name) : super(name);
 }

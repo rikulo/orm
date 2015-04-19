@@ -8,8 +8,8 @@ part of rikulo_orm;
  * database(by find or queries).
  */
 class CacheRetrieveMode extends Enum {
-  static const CacheRetrieveMode BYPASS = const CacheRetrieveMode("BYPASS", 0);
-  static const CacheRetrieveMode USE = const CacheRetrieveMode("USE", 1);
+  static const CacheRetrieveMode BYPASS = const CacheRetrieveMode("BYPASS");
+  static const CacheRetrieveMode USE = const CacheRetrieveMode("USE");
 
-  const CacheRetrieveMode(String name, int ordinal) : super(name, ordinal);
+  const CacheRetrieveMode(String name) : super(name);
 }

@@ -18,3 +18,4 @@ out
 ~$*.pptx
 ~$*.doc
 ~$*.xlsx
+*.iml

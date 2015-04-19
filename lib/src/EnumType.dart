@@ -6,8 +6,8 @@ part of rikulo_orm;
 
 /** Denfines mapping for enumerated types. */
 class EnumType extends Enum {
-  static const EnumType ORDINAL = const EnumType("ORDINAL", 0);
-  static const EnumType STRING = const EnumType("STRING", 1);
+  static const EnumType ORDINAL = const EnumType("ORDINAL");
+  static const EnumType STRING = const EnumType("STRING");
 
-  const EnumType(String name, int ordinal) : super(name, ordinal);
+  const EnumType(String name) : super(name);
 }

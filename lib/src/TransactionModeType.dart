@@ -7,20 +7,15 @@ part of rikulo_orm;
 /** Transaction mode when the EntityManager starts a transaction */
 class TransactionModeType extends Enum {
   static const TransactionModeType READ_ONLY
-    = const TransactionModeType("READ_ONLY", 0);
+    = const TransactionModeType("READ_ONLY");
   static const TransactionModeType READ_WRITE
-    = const TransactionModeType("READ_WRITE", 1);
+    = const TransactionModeType("READ_WRITE");
 
   static const Map<String, int> _enums =
     const {"READ_ONLY" : 0, "READ_WRITE" : 1};
 
   /** Returns a list of enum type, in the order of ordinal. */
-  static const List<TransactionModeType> values =
-    const [READ_ONLY, READ_WRITE];
+  static const List<TransactionModeType> values = const [READ_ONLY, READ_WRITE];
 
-  /** Returns the enum constant of this type with the specified name */
-  static TransactionModeType valueOf(String name)
-    => values[_enums[name]];
-
-  const TransactionModeType(String name, int ordinal) : super(name, ordinal);
+  const TransactionModeType(String name) : super(name);
 }

@@ -6,13 +6,13 @@ part of rikulo_orm_metamodel;
 
 /** Persistence type. */
 class PersistentAttributeType extends Enum {
-  static const PersistentAttributeType BASIC = const PersistentAttributeType("BASIC", 0);
-  static const PersistentAttributeType ELEMENT_COLLECTION = const PersistentAttributeType("ELEMENT_COLLECTION", 1);
-  static const PersistentAttributeType EMBEDDED = const PersistentAttributeType("EMBEDDED", 2);
-  static const PersistentAttributeType MANY_TO_MANY = const PersistentAttributeType("MANY_TO_MANY", 3);
-  static const PersistentAttributeType MANY_TO_ONE = const PersistentAttributeType("MANY_TO_ONE", 4);
-  static const PersistentAttributeType ONE_TO_MANY = const PersistentAttributeType("ONE_TO_MANY", 5);
-  static const PersistentAttributeType ONE_TO_ONE = const PersistentAttributeType("ONE_TO_ONE", 6);
+  static const PersistentAttributeType BASIC = const PersistentAttributeType("BASIC");
+  static const PersistentAttributeType ELEMENT_COLLECTION = const PersistentAttributeType("ELEMENT_COLLECTION");
+  static const PersistentAttributeType EMBEDDED = const PersistentAttributeType("EMBEDDED");
+  static const PersistentAttributeType MANY_TO_MANY = const PersistentAttributeType("MANY_TO_MANY");
+  static const PersistentAttributeType MANY_TO_ONE = const PersistentAttributeType("MANY_TO_ONE");
+  static const PersistentAttributeType ONE_TO_MANY = const PersistentAttributeType("ONE_TO_MANY");
+  static const PersistentAttributeType ONE_TO_ONE = const PersistentAttributeType("ONE_TO_ONE");
 
-  const PersistentAttributeType(String name, int ordinal) : super(name, ordinal);
+  const PersistentAttributeType(String name) : super(name);
 }

@@ -6,11 +6,11 @@ part of rikulo_orm;
 
 /** How the EntityManager handle 2nd-level cache for the persistence unit. */
 class SharedCacheMode extends Enum {
-  static const SharedCacheMode ALL = const SharedCacheMode("ALL", 0);
-  static const SharedCacheMode DISABLE_SELECTIVE = const SharedCacheMode("DISABLE_SELECTIVE", 1);
-  static const SharedCacheMode ENABLE_SELECTIVE = const SharedCacheMode("ENABLE_SELECTIVE", 2);
-  static const SharedCacheMode NONE = const SharedCacheMode("NONE", 3);
-  static const SharedCacheMode UNSPECIFIED = const SharedCacheMode("UNSPECIFIED", 4);
+  static const SharedCacheMode ALL = const SharedCacheMode("ALL");
+  static const SharedCacheMode DISABLE_SELECTIVE = const SharedCacheMode("DISABLE_SELECTIVE");
+  static const SharedCacheMode ENABLE_SELECTIVE = const SharedCacheMode("ENABLE_SELECTIVE");
+  static const SharedCacheMode NONE = const SharedCacheMode("NONE");
+  static const SharedCacheMode UNSPECIFIED = const SharedCacheMode("UNSPECIFIED");
 
-  const SharedCacheMode(String name, int ordinal) : super(name, ordinal);
+  const SharedCacheMode(String name) : super(name);
 }

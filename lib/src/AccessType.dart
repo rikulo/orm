@@ -8,8 +8,8 @@ part of rikulo_orm;
  * database(by find or queries).
  */
 class AccessType extends Enum {
-  static const AccessType FIELD = const AccessType("FIELD", 0);
-  static const AccessType PROPERTY = const AccessType("PROPERTY", 1);
+  static const AccessType FIELD = const AccessType("FIELD");
+  static const AccessType PROPERTY = const AccessType("PROPERTY");
 
-  const AccessType(String name, int ordinal) : super(name, ordinal);
+  const AccessType(String name) : super(name);
 }
