@@ -38,7 +38,6 @@ void main() {
 }
 
 show(String pre, var obj) {
-  var mirror = currentMirrorSystem();
   InstanceMirror self = reflect(obj);
   print("$pre:[${self.type.simpleName}]");
   print("$pre:lib[${self.type.owner.simpleName}]");

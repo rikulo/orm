@@ -12,7 +12,7 @@ implements PluralAttribute<X,C,E>, Bindable<E> {
   final String _orderBy;
   final OrderColumn _oColumn;
 
-  PluralAttributeImpl(String name, ManagedTypeImpl declaredType,
+  PluralAttributeImpl(Symbol name, ManagedTypeImpl declaredType,
                         MethodMirror member, ClassMirror cls,
                         bool association, PersistentAttributeType pType,
                         FetchType fetch, List<CascadeType> cascade,
@@ -45,8 +45,8 @@ implements PluralAttribute<X,C,E>, Bindable<E> {
 
   //-- Bindable --//
   /** Returns the dart class of the element. */
-  ClassMirror getBindableDartType() => _eType.getDartType();
+  ClassMirror get bindableDartType => _eType.getDartType();
 
   /** Returns the bindable type of the represented object */
-  BindableType getBindableType() => BindableType.PLURAL_ATTRIBUTE;
+  BindableType get bindableType => BindableType.PLURAL_ATTRIBUTE;
 }

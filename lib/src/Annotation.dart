@@ -260,7 +260,7 @@ class Enumerated {
 }
 
 /** For class: specifies the invocation of default listeners is excluded for the
- * [Entity] class(or [_MappedSuperclass]) and its subclasses.
+ * [Entity] class(or [MappedSuperclass]) and its subclasses.
  */
 //@Target(value:"TYPE")
 class ExcludeDefaultListeners {
@@ -268,7 +268,7 @@ class ExcludeDefaultListeners {
 }
 
 /** For class: specifies the invocation of superclass listeners is excluded for
- * the [Entity] class(or [_MappedSuperclass]) and its subclasses.
+ * the [Entity] class(or [MappedSuperclass]) and its subclasses.
  */
 //@Target(value:"TYPE")
 class ExcludeSuperclassListeners {
@@ -388,11 +388,11 @@ class JoinTable {
 /** For field: specifies a field should be persisted as a large
  * object in database.
  */
-const blob = const _Blob();
+const blob = const Blob();
 
 //@Target(value:"FIELD")
-class _Blob {
-  const _Blob();
+class Blob {
+  const Blob();
 }
 
 /** For field: defines a many-to-many association.
@@ -537,10 +537,10 @@ class MapKeyTemporal {
 
 /** For class: specifies a super class to be inherited by an entity */
 
-const mappedSuperclass = const _MappedSuperclass();
+const mappedSuperclass = const MappedSuperclass();
 //@Target(value:"TYPE")
-class _MappedSuperclass {
-  const _MappedSuperclass();
+class MappedSuperclass {
+  const MappedSuperclass();
 }
 
 /** For field: designates a [ManyToOne] or [OneToOne] relationship field that
@@ -558,7 +558,7 @@ class MapsId {
 
 /** For class: specify multiple native SQL named queries. The query names are
  * scoped to the persistence unit. Can be applied to [Entity] or
- * [_MappedSuperclass].
+ * [MappedSuperclass].
  *
  * + [queries] - Array of [NamedNativeQuery].
  */
@@ -571,7 +571,7 @@ class NamedNativeQueries {
 
 /** For class: species a native SQL named query.  The query names are
  * scoped to the persistence unit. Can be applied to [Entity] or
- * [_MappedSuperclass].
+ * [MappedSuperclass].
  *
  * + [name] - the name used to refer this query with [EntityManager]'s method
  *   that create query objects.
@@ -594,7 +594,7 @@ class NamedNativeQuery {
 
 /** For class: specify multiple named object-level queries. The query names are
  * scoped to the persistence unit. Can be applied to [Entity] or
- * [_MappedSuperclass].
+ * [MappedSuperclass].
  *
  * + [queries] - Array of [NamedQuery].
  */
@@ -607,7 +607,7 @@ class NamedQueries {
 
 /** For class: species a named object-level query. The query name are
  * scoped to the persistence unit. Can be applied to [Entity] or
- * [_MappedSuperclass].
+ * [MappedSuperclass].
  *
  * + [name] - the name used to refer this query with [EntityManager]'s method
  *   that create query objects.
@@ -708,7 +708,7 @@ class OrderColumn {
 //class PersistenceUnit {
 //class PersistenceUnits {
 
-/** For method: specifies callback methods of any [Entity], [_MappedSuperclass],
+/** For method: specifies callback methods of any [Entity], [MappedSuperclass],
  * or a callback listener class for the corresponding lifecycle event.
  */
 //@Target(value:"METHOD")
@@ -716,7 +716,7 @@ class PostLoad {
   const PostLoad();
 }
 
-/** For method: specifies callback methods of any [Entity], [_MappedSuperclass],
+/** For method: specifies callback methods of any [Entity], [MappedSuperclass],
  * or a callback listener class for the corresponding lifecycle event.
  */
 //@Target(value:"METHOD")
@@ -724,7 +724,7 @@ class PostPersist {
   const PostPersist();
 }
 
-/** For method: specifies callback methods of any [Entity], [_MappedSuperclass],
+/** For method: specifies callback methods of any [Entity], [MappedSuperclass],
  * or a callback listener class for the corresponding lifecycle event.
  */
 //@Target(value:"METHOD")
@@ -732,7 +732,7 @@ class PostRemove {
   const PostRemove();
 }
 
-/** For method: specifies callback methods of any [Entity], [_MappedSuperclass],
+/** For method: specifies callback methods of any [Entity], [MappedSuperclass],
  * or a callback listener class for the corresponding lifecycle event.
  */
 //@Target(value:"METHOD")
@@ -740,7 +740,7 @@ class PostUpdate {
   const PostUpdate();
 }
 
-/** For method: specifies callback methods of any [Entity], [_MappedSuperclass],
+/** For method: specifies callback methods of any [Entity], [MappedSuperclass],
  * or a callback listener class for the corresponding lifecycle event.
  */
 //@Target(value:"METHOD")
@@ -748,7 +748,7 @@ class PrePersist {
   const PrePersist();
 }
 
-/** For method: specifies callback methods of any [Entity], [_MappedSuperclass],
+/** For method: specifies callback methods of any [Entity], [MappedSuperclass],
  * or a callback listener class for the corresponding lifecycle event.
  */
 //@Target(value:"METHOD")
@@ -756,7 +756,7 @@ class PreRemove {
   const PreRemove();
 }
 
-/** For method: specifies callback methods of any [Entity], [_MappedSuperclass],
+/** For method: specifies callback methods of any [Entity], [MappedSuperclass],
  * or a callback listener class for the corresponding lifecycle event.
  */
 //@Target(value:"METHOD")

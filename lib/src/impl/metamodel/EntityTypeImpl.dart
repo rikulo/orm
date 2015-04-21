@@ -5,7 +5,7 @@ part of rikulo_orm_impl;
 // Author: hernichen
 
 class EntityTypeImpl<X> extends IdentifiableTypeImpl<X> implements EntityType<X> {
-  final String _name;
+  final Symbol _name;
 
   //SQL
   final Table _table; //@Table
@@ -16,38 +16,36 @@ class EntityTypeImpl<X> extends IdentifiableTypeImpl<X> implements EntityType<X>
   final List<AttributeOverride> _attrOverrides;
   final List<PrimaryKeyJoinColumn> _pkjColumns;
 
-  EntityTypeImpl(String name, ClassMirror cls, Table table,
+  EntityTypeImpl(this._name,
+      ClassMirror cls,
+      this._table,
       AccessType aType,
-      bool cacheable, InheritanceType inheritance,
-      DiscriminatorColumn dColumn,
-      DiscriminatorValue dValue,
-      List<PrimaryKeyJoinColumn> pkjColumns,
+      bool cacheable,
+      this._inheritance,
+      this._dColumn,
+      this._dValue,
+      this._pkjColumns,
       bool excludeDefaultListeners,
       bool excludeSuperListeners,
       ClassMirror idClass,
-      List<AssociationOverride> assoOverrides,
-      List<AttributeOverride> attrOverrides,
+      this._assoOverrides,
+      this._attrOverrides,
       MetamodelImpl metamodel)
-      : this._name = name,
-        this._table = table,
-        this._inheritance = inheritance,
-        this._dColumn = dColumn, //used if inheritance is SINGLE_TABLE or JOINED
-        this._dValue = dValue, //used with dColumn to indicate the entity class
-        this._assoOverrides = assoOverrides,
-        this._attrOverrides = attrOverrides,
-        this._pkjColumns = pkjColumns,
-        super(cls, PersistenceType.ENTITY, aType, cacheable,
-            excludeDefaultListeners, excludeSuperListeners,
-            idClass, metamodel);
+      : super(cls,
+          PersistenceType.ENTITY,
+          aType, cacheable,
+          excludeDefaultListeners,
+          excludeSuperListeners,
+          idClass, metamodel);
 
-  String getName() => this._name;
+  Symbol getName() => this._name;
 
   //-- Bindable --//
   /** Returns the dart class of the represented object. */
-  ClassMirror getBindableDartType() => getDartType();
+  ClassMirror get bindableDartType => getDartType();
 
   /** Returns the bindable type of the represented object */
-  BindableType getBindableType() => BindableType.ENTITY_TYPE;
+  BindableType get bindableType => BindableType.ENTITY_TYPE;
 
   //-- implementation --//
   String _getTableName()

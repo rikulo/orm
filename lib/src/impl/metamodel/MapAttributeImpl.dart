@@ -12,7 +12,7 @@ implements MapAttribute<X,K,V> {
   final List<MapKeyJoinColumn> _mkjColumns;
   final TemporalType _mkTemporal;
 
-  MapAttributeImpl(String name, ManagedTypeImpl declaredType,
+  MapAttributeImpl(Symbol name, ManagedTypeImpl declaredType,
                         MethodMirror member, ClassMirror cls,
                         bool association, PersistentAttributeType pType,
                         FetchType fetch, List<CascadeType> cascade,

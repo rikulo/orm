@@ -5,14 +5,12 @@ part of rikulo_orm_metamodel;
 // Author: hernichen
 
 /** Persistence type. */
-class PersistentAttributeType extends Enum {
-  static const PersistentAttributeType BASIC = const PersistentAttributeType("BASIC");
-  static const PersistentAttributeType ELEMENT_COLLECTION = const PersistentAttributeType("ELEMENT_COLLECTION");
-  static const PersistentAttributeType EMBEDDED = const PersistentAttributeType("EMBEDDED");
-  static const PersistentAttributeType MANY_TO_MANY = const PersistentAttributeType("MANY_TO_MANY");
-  static const PersistentAttributeType MANY_TO_ONE = const PersistentAttributeType("MANY_TO_ONE");
-  static const PersistentAttributeType ONE_TO_MANY = const PersistentAttributeType("ONE_TO_MANY");
-  static const PersistentAttributeType ONE_TO_ONE = const PersistentAttributeType("ONE_TO_ONE");
-
-  const PersistentAttributeType(String name) : super(name);
+enum PersistentAttributeType {
+  BASIC,
+  ELEMENT_COLLECTION,
+  EMBEDDED,
+  MANY_TO_MANY,
+  MANY_TO_ONE,
+  ONE_TO_MANY,
+  ONE_TO_ONE
 }

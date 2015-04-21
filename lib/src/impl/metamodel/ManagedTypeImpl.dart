@@ -5,12 +5,12 @@ part of rikulo_orm_impl;
 // Author: hernichen
 
 class ManagedTypeImpl<X> extends MetaTypeImpl<X> implements ManagedType<X> {
-  Map<String, SingularAttribute<X,dynamic>> _singularAttrs;
-  Map<String, CollectionAttribute<X,dynamic>> _collectionAttrs;
-  Map<String, ListAttribute<X,dynamic>> _listAttrs;
-  Map<String, SetAttribute<X,dynamic>> _setAttrs;
-  Map<String, QueueAttribute<X,dynamic>> _queueAttrs;
-  Map<String, MapAttribute<X,dynamic,dynamic>> _mapAttrs;
+  Map<Symbol, SingularAttribute<X,dynamic>> _singularAttrs;
+  Map<Symbol, CollectionAttribute<X,dynamic>> _collectionAttrs;
+  Map<Symbol, ListAttribute<X,dynamic>> _listAttrs;
+  Map<Symbol, SetAttribute<X,dynamic>> _setAttrs;
+  Map<Symbol, QueueAttribute<X,dynamic>> _queueAttrs;
+  Map<Symbol, MapAttribute<X,dynamic,dynamic>> _mapAttrs;
 
   Set<Attribute<X,dynamic>> _attrVals;
   Set<PluralAttribute<X,dynamic,dynamic>> _pluralVals;
@@ -263,7 +263,7 @@ class ManagedTypeImpl<X> extends MetaTypeImpl<X> implements ManagedType<X> {
     SingularAttribute attr = _singularAttrs[name];
     if (attr is! SingularAttribute<X,dynamic>)
       return null;
-    if (!ClassUtil.isAssignableFrom(attr.getDartType(), type))
+    if (!ClassUtil.isAssignableFrom(attr.dartType, type))
       return null;
     return attr;
   }

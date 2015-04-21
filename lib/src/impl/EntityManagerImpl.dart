@@ -7,14 +7,11 @@ part of rikulo_orm_impl;
 /** Implementation of EntityManager */
 class EntityManagerImpl implements EntityManager {
   final EntityManagerFactoryImpl _emf;
-  Map<dynamic, EntityInfo> _entities = new Map();
+  Map<dynamic, EntityInfo> _entities = {};
   Map _properties;
   bool _open = true;
 
-  EntityManagerImpl(EntityManagerFactoryImpl emf, [Map properties])
-      : this._emf = emf {
-    this._properties = new Map.from(properties);
-  }
+  EntityManagerImpl(this._emf, [this._properties]);
 
   /** Start a transaction in a seperate thread and execute the exec function.
    * Note the exec function must return a Future that would pass the results of
@@ -44,7 +41,7 @@ class EntityManagerImpl implements EntityManager {
   /** Add the given entity into the associated persistence context; i.e. make
    * the entity a persistence managed entity.
    */
-  void persist(var entity) {
+  Future persist(var entity) {
     print('persisting');
   }
 

@@ -7,7 +7,7 @@ part of rikulo_orm_impl;
 class CollectionAttributeImpl<X,E> extends PluralAttributeImpl<X,List<E>,E>
 implements CollectionAttribute<X,E> {
 
-  CollectionAttributeImpl(String name, ManagedTypeImpl declaredType,
+  CollectionAttributeImpl(Symbol name, ManagedTypeImpl declaredType,
                         MethodMirror member, ClassMirror cls,
                         bool association, PersistentAttributeType pType,
                         FetchType fetch, List<CascadeType> cascade,

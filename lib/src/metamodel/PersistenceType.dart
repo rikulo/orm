@@ -5,11 +5,9 @@ part of rikulo_orm_metamodel;
 // Author: hernichen
 
 /** Persistence type. */
-class PersistenceType extends Enum {
-  static const PersistenceType BASIC = const PersistenceType("BASIC");
-  static const PersistenceType EMBEDDABLE = const PersistenceType("EMBEDDABLE");
-  static const PersistenceType ENTITY = const PersistenceType("ENTITY");
-  static const PersistenceType MAPPED_SUPERCLASS = const PersistenceType("MAPPED_SUPERCLASS");
-
-  const PersistenceType(String name) : super(name);
+enum PersistenceType {
+  BASIC,
+  EMBEDDABLE,
+  ENTITY,
+  MAPPED_SUPERCLASS
 }

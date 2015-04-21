@@ -12,11 +12,7 @@ class EntityManagerFactoryImpl implements EntityManagerFactory {
   bool _open;
   PersistenceUnitUtil _uutil;
 
-  EntityManagerFactoryImpl(PersistenceUnitInfo uinfo,
-      Metamodel mmodel, Map properties)
-      : this._properties = properties,
-        this._mmodel = mmodel,
-        this._uinfo = uinfo {
+  EntityManagerFactoryImpl(this._uinfo, this._mmodel, this._properties) {
     _open = true;
   }
 

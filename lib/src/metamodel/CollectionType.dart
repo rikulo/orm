@@ -5,12 +5,10 @@ part of rikulo_orm_metamodel;
 // Author: hernichen
 
 /** Collection type. */
-class CollectionType extends Enum {
-  static const CollectionType COLLECTION = const CollectionType("COLLECTION");
-  static const CollectionType LIST = const CollectionType("LIST");
-  static const CollectionType MAP = const CollectionType("MAP");
-  static const CollectionType SET = const CollectionType("SET");
-  static const CollectionType QUEUE = const CollectionType("QUEUE");
-
-  const CollectionType(String name) : super(name);
+enum CollectionType {
+  COLLECTION,
+  LIST,
+  MAP,
+  SET,
+  QUEUE
 }

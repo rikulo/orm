@@ -6,9 +6,12 @@
       <excludeFolder url="file://$MODULE_DIR$/example/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/todo/packages" />
       <excludeFolder url="file://$MODULE_DIR$/packages/rikulo_orm" />
+      <excludeFolder url="file://$MODULE_DIR$/test/impl/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/test/impl/sql/packages" />
       <excludeFolder url="file://$MODULE_DIR$/test/packages" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Dart SDK" level="application" />
   </component>
 </module>

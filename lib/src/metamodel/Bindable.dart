@@ -9,8 +9,8 @@ part of rikulo_orm_metamodel;
  */
 abstract class Bindable<T> {
   /** Returns the dart class of the represented object. */
-  ClassMirror getBindableDartType();
+  ClassMirror get bindableDartType;
 
   /** Returns the bindable type of the represented object */
-  BindableType getBindableType();
+  BindableType get bindableType;
 }

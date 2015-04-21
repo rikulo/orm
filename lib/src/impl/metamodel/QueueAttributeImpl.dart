@@ -7,7 +7,7 @@ part of rikulo_orm_impl;
 class QueueAttributeImpl<X,E> extends PluralAttributeImpl<X,Queue<E>,E>
 implements QueueAttribute<X,E> {
 
-  QueueAttributeImpl(String name, ManagedTypeImpl declaredType,
+  QueueAttributeImpl(Symbol name, ManagedTypeImpl declaredType,
                         MethodMirror member, ClassMirror cls,
                         bool association, PersistentAttributeType pType,
                         FetchType fetch, List<CascadeType> cascade,

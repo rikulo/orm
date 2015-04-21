@@ -6,14 +6,14 @@ part of rikulo_orm_metamodel;
 
 abstract class SingularAttribute<X,T> implements Attribute<X,T>, Bindable<T> {
   /** Returns the type of the represented attribute. */
-  MetaType<T> getType();
+  MetaType<T> get type;
 
   /** Returns whether the attribute an id field. */
-  bool isId();
+  bool get isId;
 
   /** Returns whether the attribute nullable. */
-  bool isOptional();
+  bool get isOptional;
 
   /** Returns whether the attribute a version field. */
-  bool isVersion();
+  bool get isVersion;
 }

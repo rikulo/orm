@@ -5,3 +5,5 @@ description: Rikulo ORM is an Object-relational mapping package for Dart.
 homepage: http://rikulo.org
 dependencies:
   rikulo_commons: any
+dev_dependencies:
+  unittest: any

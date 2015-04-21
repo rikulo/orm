@@ -161,7 +161,7 @@ class SqlGenerator {
    * + {cols} - columns defintion
    * + {nosort} - NOSORT | REVERSE
    */
-  String get CreateIndexTemplate
+  String get createIndexTemplate
     => "CREATE {unique} INDEX {idx} ON {tb} ADD INDEX({cols})";
 
   /** Returns the template string for defining a table foreign key.
@@ -183,7 +183,7 @@ class SqlGenerator {
 
   /** Map a sql type to a specific sql script */
   void mapType_(SqlType t, String script, [int capacity = 0]) {
-    _typeMapping.putScript(t, script, capacity);
+    _typeMapping.put(t, script, capacity);
   }
 
   /** Map a sql token to a specific sql script template */

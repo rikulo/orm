@@ -49,7 +49,7 @@ class IdentifiableTypeImpl<X> extends ManagedTypeImpl<X>
   }
   SingularAttribute<X,dynamic> _getDeclaredId0(ClassMirror type) {
     for (SingularAttribute<X,dynamic> idAttr in _idAttrs)
-      if (idAttr.getDartType() == type)
+      if (idAttr.dartType == type)
         return idAttr;
     return null;
   }
@@ -65,7 +65,7 @@ class IdentifiableTypeImpl<X> extends ManagedTypeImpl<X>
   }
   SingularAttribute<X,dynamic> _getDeclaredVersion0(ClassMirror type) {
     for (SingularAttribute<X,dynamic> verAttr in _verAttrs)
-      if (verAttr.getDartType() == type)
+      if (verAttr.dartType == type)
         return verAttr;
     return null;
   }
@@ -94,7 +94,7 @@ class IdentifiableTypeImpl<X> extends ManagedTypeImpl<X>
 
   /** Returns the type that represent the type of the id */
   MetaType getIdType() => _idClass != null ?
-      _metamodel._getMetaType(_idClass) : _idAttrs[0].getType();
+      _metamodel._getMetaType(_idClass) : _idAttrs[0].bindableDartType;
 
   /** Returns the identificable type that corresponds to the most specific
    * MappedSuperclass or Entity extended by the Entity or MappedSuperclass.
@@ -128,21 +128,21 @@ class IdentifiableTypeImpl<X> extends ManagedTypeImpl<X>
 
   //extra
   void _handleIdAttr(SingularAttributeImpl attr) {
-    if (attr.isId()) {
-      if (attr.isEmbedded()) { //@EmbeddedId
+    if (attr.isId) {
+      if (attr.isEmbedded) { //@EmbeddedId
         if (!_idAttrs.isEmpty)
           throw const PersistenceException("Cannot define both @EmbeddedId and @Id in an Entity");
         if (_idClass != null)
           throw const PersistenceException("Cannot define both @EmbeddedId and @IdClass in an Entity");
         _embeddedId = true;
-        _idClass = attr.getDartType();
+        _idClass = attr.dartType;
       }
       _idAttrs.add(attr);
     }
   }
 
   void _handleVerAttr(SingularAttributeImpl attr) {
-    if (attr.isVersion()) _verAttrs.add(attr);
+    if (attr.isVersion) _verAttrs.add(attr);
   }
 
   void _handlePostLoad(MethodMirror method) {

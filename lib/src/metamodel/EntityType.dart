@@ -9,5 +9,5 @@ part of rikulo_orm_metamodel;
  */
 abstract class EntityType<X> implements IdentifiableType<X>, Bindable<X> {
   /** Returns entity  name */
-  String getName();
+  Symbol getName();
 }
