@@ -1,9 +1,9 @@
 library metamodel_test;
 
-import '../../lib/orm.dart';
-import '../../lib/impl.dart';
-import '../../lib/spi.dart';
-import "../../packages/unittest/unittest.dart";
+import 'package:rikulo_orm/orm.dart';
+import 'package:rikulo_orm/impl.dart';
+import 'package:rikulo_orm/spi.dart';
+import "package:unittest/unittest.dart";
 
 main() {
   group('Metamodel >', () {
