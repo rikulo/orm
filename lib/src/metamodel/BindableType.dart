@@ -5,10 +5,8 @@ part of rikulo_orm_metamodel;
 // Author: hernichen
 
 /** Bindable type. */
-class BindableType extends Enum {
-  static const BindableType ENTITY_TYPE = const BindableType("ENTITY_TYPE");
-  static const BindableType PLURAL_ATTRIBUTE = const BindableType("PLURAL_ATTRIBUTE");
-  static const BindableType SINGULAR_ATTRIBUTE = const BindableType("SINGULAR_ATTRIBUTE");
-
-  const BindableType(String name) : super(name);
+enum BindableType {
+  ENTITY_TYPE,
+  PLURAL_ATTRIBUTE,
+  SINGULAR_ATTRIBUTE
 }
