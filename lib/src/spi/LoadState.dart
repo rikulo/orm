@@ -5,13 +5,11 @@ part of rikulo_orm_spi;
 // Author: hernichen
 
 /** Load states returned by the [ProviderUtil]. */
-class LoadState extends Enum {
+enum LoadState {
   /** The element has been loaded */
-  static const LoadState LOADED = const LoadState("LOADED");
+  LOADED,
   /** The element has not been loaded */
-  static const LoadState NOT_LOADED = const LoadState("NOT_LOADED");
+  NOT_LOADED,
   /** The loading state of the element is unknown */
-  static const LoadState UNKNOWN = const LoadState("UNKNOWN");
-
-  const LoadState(String name) : super(name);
+  UNKNOWN
 }
