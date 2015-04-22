@@ -28,7 +28,7 @@ class MetamodelImpl implements Metamodel {
     _initBasicTypes();
 
     //For all mapped classes in uinfo, create metainfo per specified OrmInfo
-    List<String> qnames = uinfo.getManagedClassNames();
+    List<String> qnames = uinfo.managedClassNames;
     for (String qname in qnames) {
       ClassMirror cls = ClassUtil.forName(qname);
       List/*<Annotation>*/ typeAnnts = oinfo.getTypeAnnotations(qname);
