@@ -29,7 +29,6 @@ part "src/impl/EntityInfo.dart";
 
 //spi
 part "src/impl/spi/PersistenceProviderImpl.dart";
-part "src/impl/spi/PersistenceUnitInfoImpl.dart";
 
 //metamodel
 part "src/impl/metamodel/MetamodelImpl.dart";
