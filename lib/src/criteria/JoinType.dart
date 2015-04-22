@@ -5,10 +5,8 @@
 part of rikulo_orm_criteria;
 
 /** Defines the join types */
-class JoinType extends Enum {
-  static const JoinType INNER = const JoinType("INNER");
-  static const JoinType LEFT = const JoinType("LEFT");
-  static const JoinType RIGHT = const JoinType("RIGHT");
-
-  const JoinType(String name) : super(name);
+enum JoinType {
+  INNER,
+  LEFT,
+  RIGHT
 }

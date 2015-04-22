@@ -5,9 +5,7 @@
 part of rikulo_orm_criteria;
 
 /** boolean operator on [Predicate]. */
-class BooleanOperator extends Enum {
-  static const BooleanOperator AND = const BooleanOperator("AND");
-  static const BooleanOperator OR = const BooleanOperator("OR");
-
-  const BooleanOperator(String name) : super(name);
+enum BooleanOperator {
+  AND,
+  OR
 }
