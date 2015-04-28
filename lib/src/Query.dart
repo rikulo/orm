@@ -2,6 +2,8 @@
 //History: Tue, Aug 21, 2012  02:41:38 PM
 // Author: hernichen
 
+part of rikulo_orm;
+
 /** Query execution.
  * + [X] - query result type.
  */
@@ -12,16 +14,16 @@ abstract class Query<X> {
   /** Returns the position of the first result the query was set to
    * retrieve(1-based); null or 0 means no such configuration
    */
-  int getFirstResult();
+  int get firstResult;
 
   /** Flush mode used for this query */
   FlushModeType getFlushMode();
 
   /** Returns hints and associated value used for this Query */
-  Map<String, dynamic> getHints();
+  Map<String, dynamic> get hints;
 
   /** Returns lock mode for this query */
-  LockModeType getLockMode();
+  LockMode get lockMode;
 
   /** Miximum number of results the query was set to retrieve */
   int getMaxResults();
@@ -67,22 +69,22 @@ abstract class Query<X> {
   Query<X> setHint(String hintName, var value);
 
   /** Set the lock mode type to be used for the query */
-  Query<X> setLockMode(LockModeType lockMode);
+  Query<X> setLockMode(LockMode lockMode);
 
   /** Bind a date to a positional [Parameter] as specified SQL temporal type. */
-  Query<X> setTemporalParameterByPosition(int position, Date value, TemporalType temporalType);
+  Query<X> setTemporalParameterByPosition(int position, DateTime value, TemporalType temporalType);
 
   /** Bind an argument to a postional [Parameter]. */
   Query<X> setParameterByPosition(int position, var value);
 
   /** Bind a date to a named [Parameter] as specified SQL temporal type. */
-  Query<X> setTemporalParameterByName(int position, Date value, TemporalType temporalType);
+  Query<X> setTemporalParameterByName(int position, DateTime value, TemporalType temporalType);
 
   /** Bind an argument to a named [Parameter]. */
   Query<X> setParameterByName(int position, var value);
 
   /** Bind a date to the specified [Parameter] as specified SQL temporal type. */
-  Query<X> setTemporalParameter(Parameter param, Date value, TemporalType temporalType);
+  Query<X> setTemporalParameter(Parameter param, DateTime value, TemporalType temporalType);
 
   /** Bind an argument to the specified [Parameter]. */
   Query<X> setParameter(Parameter param, var value);

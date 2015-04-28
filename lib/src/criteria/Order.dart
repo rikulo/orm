@@ -2,6 +2,8 @@
 //History: Tue, Aug 21, 2012  06:38:34 PM
 // Author: hernichen
 
+part of rikulo_orm_criteria;
+
 /** Define the ordering on the query results */
 abstract class Order {
   /** Returns the expression that is used for ordering */

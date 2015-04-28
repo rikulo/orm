@@ -1,3 +1,5 @@
+part of rikulo_orm_impl;
+
 //Copyright (C) 2012 Potix Corporation. All Rights Reserved.
 //History: Mon, Sep 03, 2012  06:52:36 PM
 // Author: hernichen
@@ -5,7 +7,7 @@
 class ListAttributeImpl<X,E> extends PluralAttributeImpl<X,List<E>,E>
 implements ListAttribute<X,E> {
 
-  ListAttributeImpl(String name, ManagedTypeImpl declaredType,
+  ListAttributeImpl(Symbol name, ManagedTypeImpl declaredType,
                         MethodMirror member, ClassMirror cls,
                         bool association, PersistentAttributeType pType,
                         FetchType fetch, List<CascadeType> cascade,

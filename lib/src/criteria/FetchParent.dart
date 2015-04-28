@@ -2,6 +2,8 @@
 //History: Tue, Aug 21, 2012  06:38:34 PM
 // Author: hernichen
 
+part of rikulo_orm_criteria;
+
 /** Base class for fetching from an object.
  *   + [Z] - the source type.
  *   + [X] - the target type.

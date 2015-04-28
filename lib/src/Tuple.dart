@@ -2,6 +2,8 @@
 //History: Tue, Aug 21, 2012  12:44:28 PM
 // Author: hernichen
 
+part of rikulo_orm;
+
 /** Extracting the elements of a query result tuple. */
 abstract class Tuple {
   /** Returns the value of the element at the specified position in the result

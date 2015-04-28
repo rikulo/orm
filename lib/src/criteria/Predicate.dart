@@ -2,6 +2,8 @@
 //History: Tue, Aug 21, 2012  04:10:12 PM
 // Author: hernichen
 
+part of rikulo_orm_criteria;
+
 /** A conjunction or disjunction of restrictions */
 abstract class Predicate extends Expression<bool> {
   /** Returns the top-level conjuncts or disjuncts of the predicate. */

@@ -2,6 +2,8 @@
 //History: Wed, Aug 22, 2012  10:33:19 AM
 // Author: hernichen
 
+part of rikulo_orm_criteria;
+
 /** Builder for creating crtieria queries, compound selections, expressions,
  * predicates, orderings, etc.
  */
@@ -72,15 +74,15 @@ abstract class CriteriaBuilder {
   CriteriaQuery<Tuple> createTupleQuery();
 
   /** Create an expression to return the current date from sql's date column */
-  Expression<Date> currentDate();
+  Expression<DateTime> currentDate();
 
   /** Create an expression to return the current time from sql's time column */
-  Expression<Date> currentTime();
+  Expression<DateTime> currentTime();
 
   /** Create an expression to return the current timestamp from sql's timestamp
    * column
    */
-  Expression<Date> currentTimestamp();
+  Expression<DateTime> currentTimestamp();
 
   /** Create an ordering by the descending value of the argument x */
   Order desc(Expression x);
@@ -128,7 +130,7 @@ abstract class CriteriaBuilder {
   In inValues(Expression expression);
 
   /** Create a predicate to test whether the specified collection is empty. */
-  Predicate isEmpty(Expression<Collection> collection);
+  Predicate isEmpty(Expression<List> collection);
 
   /** Create a predicat to test if a false expression. */
   Predicate isFalse(Expression<bool> x);
@@ -137,7 +139,7 @@ abstract class CriteriaBuilder {
    * specified collection.
    */
   Predicate isMember(Expression elem,
-                              Expression<Collection> collection);
+                              Expression<List> collection);
 
   /** Create a predicate to test if the specified collection expression is not
    * empty.
@@ -253,7 +255,7 @@ abstract class CriteriaBuilder {
   SimpleCase selectSimpleCase(Expression expression);
 
   /** Create an expression that return the size of the specified collection */
-  Expression<int> size(Expression<Collection> collection);
+  Expression<int> size(Expression<List> collection);
 
   /** Create a `some` expression on the result of the specified subquery. */
   Expression some(Subquery subquery);
@@ -306,5 +308,5 @@ abstract class CriteriaBuilder {
   Expression<String> upper(Expression<String> x);
 
   /** Creaate an expression that returns all values of the specified Map */
-  Expression<Collection> values(Map map);
+  Expression<List> values(Map map);
 }

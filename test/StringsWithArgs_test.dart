@@ -1,9 +1,9 @@
 //#import('package:i18n/intl.dart');
 
-String format(String pattern) {
+void format(String pattern) {
   print("---");
   print(pattern);
-  RegExp rexp = const RegExp(r"{[A-Za-z0-9_]+}");
+  RegExp rexp = new RegExp(r"{[A-Za-z0-9_]+}");
   print("rexp:$rexp");
   Iterable<Match> matches = rexp.allMatches(pattern);
   for (Match m in matches) {

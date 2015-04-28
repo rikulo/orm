@@ -1,5 +1,5 @@
-#library("Test:Test0");
-#import("dart:mirrors");
+//#library("Test:Test0");
+import "dart:mirrors" ;
 
 class Test<X> {
   X abc;
@@ -38,7 +38,6 @@ void main() {
 }
 
 show(String pre, var obj) {
-  var mirror = currentMirrorSystem();
   InstanceMirror self = reflect(obj);
   print("$pre:[${self.type.simpleName}]");
   print("$pre:lib[${self.type.owner.simpleName}]");

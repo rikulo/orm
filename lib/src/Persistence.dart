@@ -2,6 +2,8 @@
 //History: Wed, Aug 15, 2012  06:45:53 PM
 // Author: hernichen
 
+part of rikulo_orm;
+
 /** Singleton to start everything about object persistence */
 class Persistence {
   static final String PERSISTENCE_INFO = "rikulo_orm.PersistenceInfo";

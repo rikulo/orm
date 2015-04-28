@@ -2,10 +2,10 @@
 //History: Tue, Aug 21, 2012  04:10:12 PM
 // Author: hernichen
 
-/** boolean operator on [Predicate]. */
-class BooleanOperator extends Enum {
-  static const BooleanOperator AND = const BooleanOperator("AND", 0);
-  static const BooleanOperator OR = const BooleanOperator("OR", 1);
+part of rikulo_orm_criteria;
 
-  const BooleanOperator(String name, int ordinal) : super(name, ordinal);
+/** boolean operator on [Predicate]. */
+enum BooleanOperator {
+  AND,
+  OR
 }

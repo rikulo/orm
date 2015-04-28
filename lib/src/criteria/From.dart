@@ -2,6 +2,8 @@
 //History: Tue, Aug 21, 2012  04:34:10 PM
 // Author: hernichen
 
+part of rikulo_orm_criteria;
+
 /** An entity in From clause; or embeddable belong to an entity
  * + [Z] - the source type.
  * + [X] - the target type.

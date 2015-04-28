@@ -1,34 +1,35 @@
 //Stolen example from http://docs.jboss.org/hibernate/orm/4.1/manual/en-US/html_single/#tutorial-firstapp
-#import("../../orm/orm.dart");
+import "../../lib/orm.dart";
+import "dart:async";
+//import 'lib/orm.dart';
 
-//@Entity
-//@Table(name = "EVENTS")
+@entity
+@Table(name: "EVENTS")
 class Event {
-  //@Id
-  //@GeneratedValue
-  //@Column(name = "EVENT_ID")
+  @Id()
+  @GeneratedValue()
+  @Column(name: "EVENT_ID")
   int id;
 
   String title;
 
-  //@Temporal(TemporalType.TIMESTAMP)
-  //@Column(name = "EVENT_DATE")
-  Date date;
+  @Temporal(TemporalType.TIMESTAMP)
+  @Column(name: "EVENT_DATE")
+  DateTime date;
 
   Event(this.title, this.date);
 }
 
-Future<bool> saveEvent(EntityManager em, Transaction tx) {
-  return em.persist( new Event("Our very first event!", new Date()))
-    .chain((success) => em.persist( new Event("A follow up event", new Date())))
-    .chain((success) => em.close());
+Future<bool> saveEvent(EntityManager em, EntityTransaction tx) {
+  return em.persist( new Event("Our very first event!", new DateTime.now()))
+    .then((success) => em.persist( new Event("A follow up event", new DateTime.now())))
+    .then((success) => em.close());
 }
 
 Future<List<Event>> getEvents(EntityManager em, EntityTransaction tx) {
-  Future<List<Event>> eventsfr = em.createQuery("from Event", "Event").getResultList();
-  eventsfr.chain((events) {results = events; return em.close()})
-    .then((success) => );
-  return events; //return events in list
+  var results;
+  return em.createQuery("from Event", Event).getResultList().then((events) {results = events; return em.close();})
+    .then((success) => new Future(() => results));
 }
 
 main() {
@@ -69,13 +70,13 @@ main() {
 
   //test saveEvent
   emffr
-    .chain((emf) => emf.createEntityManager())
-    .chain((em) => em.transaction(saveEvent))
+    .then((emf) => emf.createEntityManager())
+    .then((em) => em.transaction(saveEvent))
     .then((commited) => print("saveEvent success!"));
 
   //test getEvents
   emffr
-    .chain((emf) => emf.createEntityManager())
-    .chain((em) => em.transaction(getEvents))
+    .then((emf) => emf.createEntityManager())
+    .then((em) => em.transaction(getEvents))
     .then((events) => events.forEach((event) => print("Event (${event.date}) : ${event.title}")));
 }

@@ -1,3 +1,5 @@
+part of rikulo_orm_metamodel;
+
 //Copyright (C) 2012 Potix Corporation. All Rights Reserved.
 //History: Mon, Sep 03, 2012  05:57:31 PM
 // Author: hernichen
@@ -7,7 +9,7 @@
  * element.
  */
 //@Target(value:"TYPE")
-class StaticMetamodel extends Annotation {
+class StaticMetamodel {
   final String className;
 
   const StaticMetamodel(this.className);

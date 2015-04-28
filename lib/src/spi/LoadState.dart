@@ -1,15 +1,15 @@
+part of rikulo_orm_spi;
+
 //Copyright (C) 2012 Potix Corporation. All Rights Reserved.
 //History: Mon, Aug 20, 2012  06:17:25 PM
 // Author: hernichen
 
 /** Load states returned by the [ProviderUtil]. */
-class LoadState extends Enum {
+enum LoadState {
   /** The element has been loaded */
-  static const LoadState LOADED = const LoadState("LOADED", 0);
+  LOADED,
   /** The element has not been loaded */
-  static const LoadState NOT_LOADED = const LoadState("NOT_LOADED", 1);
+  NOT_LOADED,
   /** The loading state of the element is unknown */
-  static const LoadState UNKNOWN = const LoadState("UNKNOWN", 2);
-
-  const LoadState(String name, int ordinal) : super(name, ordinal);
+  UNKNOWN
 }

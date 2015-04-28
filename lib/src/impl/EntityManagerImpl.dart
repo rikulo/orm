@@ -1,3 +1,5 @@
+part of rikulo_orm_impl;
+
 //Copyright (C) 2012 Potix Corporation. All Rights Reserved.
 //History: Fri, Sep 07, 2012  06:51:32 PM
 // Author: hernichen
@@ -5,14 +7,11 @@
 /** Implementation of EntityManager */
 class EntityManagerImpl implements EntityManager {
   final EntityManagerFactoryImpl _emf;
-  Map<dynamic, EntityInfo> _entities = new Map();
+  Map<dynamic, EntityInfo> _entities = {};
   Map _properties;
   bool _open = true;
 
-  EntityManagerImpl(EntityManagerFactoryImpl emf, [Map properties])
-      : this._emf = emf {
-    this._properties = new Map.from(properties);
-  }
+  EntityManagerImpl(this._emf, [this._properties]);
 
   /** Start a transaction in a seperate thread and execute the exec function.
    * Note the exec function must return a Future that would pass the results of
@@ -42,7 +41,9 @@ class EntityManagerImpl implements EntityManager {
   /** Add the given entity into the associated persistence context; i.e. make
    * the entity a persistence managed entity.
    */
-  void persist(var entity);
+  Future persist(var entity) {
+    print('persisting');
+  }
 
   /** Return a cloned managed entity which is merged the state of the given
    * entity. Note the cloned is add into the associated persistence context but
@@ -54,10 +55,10 @@ class EntityManagerImpl implements EntityManager {
   void remove(var entity);
 
   /** Refresh the state of the given entity from the db with optional
-   * [properties] and then lock the [entity] with optional [LockModeType]. All
+   * [properties] and then lock the [entity] with optional [LockMode]. All
    * changes made to the entity would be overwritten by the refreshing if any.
    */
-  void refresh(var entity, [LockModeType lockMode, Map properties]);
+  void refresh(var entity, [LockMode lockMode, Map properties]);
 
   /** Sync persistence context to the db (but not commit) */
   void flush();
@@ -80,8 +81,8 @@ class EntityManagerImpl implements EntityManager {
     _properties[propertyName] = value;
   }
 
-  /** current [LockModeType] for the specified [entity]. */
-  LockModeType getLockMode(var entity) {
+  /** current [LockMode] for the specified [entity]. */
+  LockMode getLockMode(var entity) {
     EntityInfo info = _entities[entity];
     return info == null ? null : info.lockMode;
   }
@@ -93,10 +94,10 @@ class EntityManagerImpl implements EntityManager {
   EntityTransaction getTransaction();
 
   /** find by Id */
-  find(ClassMirror type, var id, [Map properties, LockModeType lockMode]);
+  find(ClassMirror type, var id, [Map properties, LockMode lockMode]);
 
-  /** lock an entity instance with the specified [LockModeType] and optional [properties] */
-  void lock(var entity, LockModeType lockMode, [Map properties]);
+  /** lock an entity instance with the specified [LockMode] and optional [properties] */
+  void lock(var entity, LockMode lockMode, [Map properties]);
 
   //TODO(henri): Query is not supported yet
 //  Query createQuery(String qlString, [Type resultType]);

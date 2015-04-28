@@ -2,6 +2,8 @@
 //History: Mon, Aug 13, 2012  10:23:06 AM
 // Author: hernichen
 
+part of rikulo_orm;
+
 /** Track entities with a persistence context */
 abstract class EntityManager {
   /** Start a transaction in a seperate thread and execute the exec function.
@@ -26,7 +28,7 @@ abstract class EntityManager {
   /** Add the given entity into the associated persistence context; i.e. make
    * the entity a persistence managed entity.
    */
-  void persist(var entity);
+  Future<Object> persist(Object entity);
 
   /** Return a cloned managed entity which is merged the state of the given
    * entity. Note the cloned is add into the associated persistence context but
@@ -38,10 +40,10 @@ abstract class EntityManager {
   void remove(var entity);
 
   /** Refresh the state of the given entity from the db with optional
-   * [properties] and then lock the [entity] with optional [LockModeType]. All
+   * [properties] and then lock the [entity] with optional [LockMode]. All
    * changes made to the entity would be overwritten by the refreshing if any.
    */
-  void refresh(var entity, [LockModeType lockMode, Map properties]);
+  void refresh(var entity, [LockMode lockMode, Map properties]);
 
   /** Sync persistence context to the db (but not commit) */
   void flush();
@@ -65,8 +67,8 @@ abstract class EntityManager {
   /** Set a property for this EntityManager. */
   void setProperty(String propertyName, var value);
 
-  /** current [LockModeType] for the specified [entity]. */
-  LockModeType getLockMode(var entity);
+  /** current [LockMode] for the specified [entity]. */
+  LockMode getLockMode(var entity);
 
   /** Returns an instance whose state can be lazily fetched. */
   getReference(ClassMirror type, var id);
@@ -75,22 +77,22 @@ abstract class EntityManager {
   EntityTransaction getTransaction();
 
   /** find by Id */
-  find(ClassMirror type, var id, [Map properties, LockModeType lockMode]);
+  find(ClassMirror type, var id, [Map properties, LockMode lockMode]);
 
-  /** lock an entity instance with the specified [LockModeType] and optional [properties] */
-  void lock(var entity, LockModeType lockMode, [Map properties]);
-  //TODO(henri): Query is not supported yet
-//  Query createQuery(String qlString, [Type resultType]);
-//
-//  Query createCriteriaQuery(CriteriaQuery criteriaQuery); //create a
-//
-//  Query createNamedQuery(String name, [Type resultType]); //create a named QL/native SQL query
-//
-//  Query createNativeQuery(String sqlString, [String resultSetMapping]); //create native SQL query
-//
-//  void joinTransaction(); //associate this EntityManager to the current JTA transaction
-//
-//  CriteriaBuilder getCriteriaBuilder(); //criteriaBuilder for creating CriteriaQuery
+  /** lock an entity instance with the specified [LockMode] and optional [properties] */
+  void lock(var entity, LockMode lockMode, [Map properties]);
+
+  Query createQuery(String qlString, [Type resultType]);
+
+  Query createCriteriaQuery(CriteriaQuery criteriaQuery); //create a
+
+  Query createNamedQuery(String name, [Type resultType]); //create a named QL/native SQL query
+
+  Query createNativeQuery(String sqlString, [String resultSetMapping]); //create native SQL query
+
+  void joinTransaction(); //associate this EntityManager to the current JTA transaction
+
+  CriteriaBuilder getCriteriaBuilder(); //criteriaBuilder for creating CriteriaQuery
 //
   /** return the under the hood EntityManager implementation per the given
    * qualified class name

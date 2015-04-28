@@ -1,14 +1,16 @@
+part of rikulo_orm_impl;
+
 //Copyright (C) 2012 Potix Corporation. All Rights Reserved.
 //History: Wed, Aug 15, 2012  07:13:37 PM
 // Author: hernichen
 
 class ManagedTypeImpl<X> extends MetaTypeImpl<X> implements ManagedType<X> {
-  Map<String, SingularAttribute<X,dynamic>> _singularAttrs;
-  Map<String, CollectionAttribute<X,dynamic>> _collectionAttrs;
-  Map<String, ListAttribute<X,dynamic>> _listAttrs;
-  Map<String, SetAttribute<X,dynamic>> _setAttrs;
-  Map<String, QueueAttribute<X,dynamic>> _queueAttrs;
-  Map<String, MapAttribute<X,dynamic,dynamic>> _mapAttrs;
+  Map<Symbol, SingularAttribute<X,dynamic>> _singularAttrs;
+  Map<Symbol, CollectionAttribute<X,dynamic>> _collectionAttrs;
+  Map<Symbol, ListAttribute<X,dynamic>> _listAttrs;
+  Map<Symbol, SetAttribute<X,dynamic>> _setAttrs;
+  Map<Symbol, QueueAttribute<X,dynamic>> _queueAttrs;
+  Map<Symbol, MapAttribute<X,dynamic,dynamic>> _mapAttrs;
 
   Set<Attribute<X,dynamic>> _attrVals;
   Set<PluralAttribute<X,dynamic,dynamic>> _pluralVals;
@@ -42,7 +44,7 @@ class ManagedTypeImpl<X> extends MetaTypeImpl<X> implements ManagedType<X> {
     if (superType != null)
       return superType.getAttribute(name);
 
-    throw const IllegalArgumentException(name);
+    throw new ArgumentError(name);
   }
 
   /** Returns all attributes of the managed type. */
@@ -70,7 +72,7 @@ class ManagedTypeImpl<X> extends MetaTypeImpl<X> implements ManagedType<X> {
     if (superType != null)
       return superType.getCollection(name, elementType);
 
-    throw const IllegalArgumentException(name);
+    throw new ArgumentError(name);
   }
 
   /** Returns the attribute declared by the managed type that corresponds to the
@@ -80,7 +82,7 @@ class ManagedTypeImpl<X> extends MetaTypeImpl<X> implements ManagedType<X> {
   Attribute<X,dynamic> getDeclaredAttribute(String name) {
     Attribute attr = _getDeclaredAttribute0(name);
     if (attr == null)
-      throw const IllegalArgumentException(name);
+      throw new ArgumentError(name);
     return attr;
   }
   Attribute<X,dynamic> _getDeclaredAttribute0(String name) {
@@ -127,7 +129,7 @@ class ManagedTypeImpl<X> extends MetaTypeImpl<X> implements ManagedType<X> {
       [ClassMirror elementType]) {
     CollectionAttribute attr = _getDeclaredCollection0(name, elementType);
     if (attr == null)
-      throw const IllegalArgumentException(name);
+      throw new ArgumentError(name);
     return attr;
   }
   CollectionAttribute<X,dynamic> _getDeclaredCollection0(String name,
@@ -149,7 +151,7 @@ class ManagedTypeImpl<X> extends MetaTypeImpl<X> implements ManagedType<X> {
       String name, [ClassMirror elementType]) {
     ListAttribute attr = _getDeclaredList0(name, elementType);
     if (attr == null)
-      throw const IllegalArgumentException(name);
+      throw new ArgumentError(name);
     return attr;
   }
   ListAttribute<X,dynamic> _getDeclaredList0(String name,
@@ -171,7 +173,7 @@ class ManagedTypeImpl<X> extends MetaTypeImpl<X> implements ManagedType<X> {
       String name, [ClassMirror elementType]) {
     QueueAttribute attr = _getDeclaredQueue0(name, elementType);
     if (attr == null)
-      throw const IllegalArgumentException(name);
+      throw new ArgumentError(name);
     return attr;
   }
   QueueAttribute<X,dynamic> _getDeclaredQueue0(String name,
@@ -194,7 +196,7 @@ class ManagedTypeImpl<X> extends MetaTypeImpl<X> implements ManagedType<X> {
       String name, [ClassMirror keyType, ClassMirror valueType]) {
     MapAttribute attr = _getDeclaredMap0(name, keyType, valueType);
     if (attr == null)
-      throw const IllegalArgumentException(name);
+      throw new ArgumentError(name);
     return attr;
   }
   MapAttribute<X,dynamic,dynamic> _getDeclaredMap0(
@@ -231,7 +233,7 @@ class ManagedTypeImpl<X> extends MetaTypeImpl<X> implements ManagedType<X> {
       [ClassMirror elementType]) {
     SetAttribute attr = _getDeclaredSet0(name, elementType);
     if (attr == null)
-      throw const IllegalArgumentException(name);
+      throw new ArgumentError(name);
     return attr;
   }
   SetAttribute<X,dynamic> _getDeclaredSet0(String name,
@@ -253,7 +255,7 @@ class ManagedTypeImpl<X> extends MetaTypeImpl<X> implements ManagedType<X> {
       String name, [ClassMirror type]) {
     SingularAttribute attr = _getDeclaredSingular0(name, type);
     if (attr == null)
-      throw const IllegalArgumentException(name);
+      throw new ArgumentError(name);
     return attr;
   }
   SingularAttribute<X,dynamic> _getDeclaredSingular0(String name,
@@ -261,7 +263,7 @@ class ManagedTypeImpl<X> extends MetaTypeImpl<X> implements ManagedType<X> {
     SingularAttribute attr = _singularAttrs[name];
     if (attr is! SingularAttribute<X,dynamic>)
       return null;
-    if (!ClassUtil.isAssignableFrom(attr.getDartType(), type))
+    if (!ClassUtil.isAssignableFrom(attr.dartType, type))
       return null;
     return attr;
   }
@@ -287,7 +289,7 @@ class ManagedTypeImpl<X> extends MetaTypeImpl<X> implements ManagedType<X> {
     if (superType != null)
       return superType.getList(name, elementType);
 
-    throw const IllegalArgumentException(name);
+    throw new ArgumentError(name);
   }
 
   /** Returns the Queue-valued attribute of the managed type that
@@ -303,7 +305,7 @@ class ManagedTypeImpl<X> extends MetaTypeImpl<X> implements ManagedType<X> {
     if (superType != null)
       return superType.getQueue(name, elementType);
 
-    throw const IllegalArgumentException(name);
+    throw new ArgumentError(name);
   }
 
   /** Returns the Map-valued attribute of the managed type that
@@ -321,7 +323,7 @@ class ManagedTypeImpl<X> extends MetaTypeImpl<X> implements ManagedType<X> {
     if (superType != null)
       return superType.getMap(name, keyType, valueType);
 
-    throw const IllegalArgumentException(name);
+    throw new ArgumentError(name);
   }
 
   /** Returns the multi-valued attribute of the managed type.
@@ -350,7 +352,7 @@ class ManagedTypeImpl<X> extends MetaTypeImpl<X> implements ManagedType<X> {
     if (superType != null)
       return superType.getSet(name, elementType);
 
-    throw const IllegalArgumentException(name);
+    throw new ArgumentError(name);
   }
 
   /** Returns the single-valued attribute of the managed type that
@@ -367,7 +369,7 @@ class ManagedTypeImpl<X> extends MetaTypeImpl<X> implements ManagedType<X> {
     if (superType != null)
       return superType.getSingularAttribute(name, type);
 
-    throw const IllegalArgumentException(name);
+    throw new ArgumentError(name);
   }
 
   /** Returns the single-valued attributes of the managed type.

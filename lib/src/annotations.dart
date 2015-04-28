@@ -1,18 +1,15 @@
 //Copyright (C) 2012 Potix Corporation. All Rights Reserved.
 //History: Fri, Aug 17, 2012  10:02:29 AM
 // Author: hernichen
-//TODO JPA spec. ref http://docs.oracle.com/javaee/6/api/index.html?javax/persistence/Entity.html
 
-/** Marker interface for persistence annotation */
-class Annotation {}
+part of rikulo_orm;
 
 /** For field/class: Attribute access type: FIELD | PROPERTY */
 //@Target(value:{"FIELD", "TYPE"})
-class Access extends Annotation {
+class Access {
   final AccessType access;
 
-  const Access({AccessType access : AccessType.FIELD})
-      : this.access = access;
+  const Access({this.access: AccessType.FIELD});
 }
 
 /** For field/class: Override mapping for an entity relationship
@@ -21,22 +18,18 @@ class Access extends Annotation {
  * + [joinTable] - joinTable that mapping is defined with a join table.
  */
 //@Target(value:{"FIELD", "TYPE"})
-class AssociationOverride extends Annotation {
+class AssociationOverride {
   final String name;
   final List<JoinColumn> joinColumns;
   final JoinTable joinTable;
 
-  const AssociationOverride(String name,
-      {JoinTable joinTable, List<JoinColumn> joinColumns})
-      : this.name = name,
-        this.joinTable = joinTable,
-        this.joinColumns = joinColumns;
+  const AssociationOverride(this.name, {this.joinTable, this.joinColumns});
 }
 
 /** For field/class: Override mappings for multiple entity relationships.
  */
 //@Target(value:{"FIELD", "TYPE"})
-class AssociationOverrides extends Annotation {
+class AssociationOverrides {
   final List<AssociationOverride> overrides;
 
   const AssociationOverrides(List<AssociationOverride> overrides)
@@ -48,7 +41,7 @@ class AssociationOverrides extends Annotation {
  * + [column] - the column that is being mapped to the field.
  */
 //@Target(value:{"FIELD", "TYPE"})
-class AttributeOverride extends Annotation {
+class AttributeOverride {
   final String name;
   final Column column;
 
@@ -59,7 +52,7 @@ class AttributeOverride extends Annotation {
 
 /** For field/class: override mappings of multiple Basic fields or Id fields. */
 //@Target(value:{"FIELD", "TYPE"})
-class AttributeOverrides extends Annotation {
+class AttributeOverrides {
   final List<AttributeOverride> overrides;
 
   const AttributeOverrides(List<AttributeOverride> overrides)
@@ -71,24 +64,21 @@ class AttributeOverrides extends Annotation {
  * + [optional] - whether the value of this field could be null.
  */
 //@Target(value:"FIELD")
-class Basic extends Annotation {
+class Basic {
   final FetchType fetch;
   final bool optional;
 
-  const Basic({FetchType fetch : FetchType.EAGER, bool optional : true})
-      : this.fetch = fetch,
-        this.optional = optional;
+  const Basic({this.fetch: FetchType.EAGER, this.optional: true});
 }
 
 /** For class: Specifies whether the entity should be cached.
  * + [cacheable] - whether the entity should be cached.
  */
 //@Target(value:"TYPE")
-class Cacheable extends Annotation {
+class Cacheable {
   final bool cacheable;
 
-  const Cacheable({bool cacheable : true})
-      : this.cacheable = cacheable;
+  const Cacheable({this.cacheable: true});
 }
 
 /** For field: specified the table used for mapping of collections of basic or
@@ -102,20 +92,14 @@ class Cacheable extends Annotation {
  * + [uniqueConstraint] - uniqueContrains placed on the table
  */
 //@Target(value:"FIELD")
-class CollectionTable extends Annotation {
+class CollectionTable {
   final String catalog;
   final List<JoinColumn> joinColumns;
   final String name;
   final String schema;
   final List<UniqueConstraint> uniqueConstraints;
 
-  const CollectionTable({String name, String schema, String catalog,
-      List<JoinColumn> joinColumns, List<UniqueConstraint> uniqueConstraints})
-      : this.name = name,
-        this.catalog = catalog,
-        this.schema = schema,
-        this.joinColumns = joinColumns,
-        this.uniqueConstraints = uniqueConstraints;
+  const CollectionTable({this.name, this.schema, this.catalog, this.joinColumns, this.uniqueConstraints});
 }
 
 /** For field: specified a mapped column.
@@ -131,7 +115,7 @@ class CollectionTable extends Annotation {
  * + [columnDefinition] - SQL fragment for DDL the column
  */
 //@Target(value:"FIELD")
-class Column extends Annotation {
+class Column {
   final String name;
   final bool nullable;
   final int length;
@@ -143,25 +127,13 @@ class Column extends Annotation {
   final bool updatable;
   final String columnDefinition;
 
-  const Column({String name, bool nullable : true, int length : 255,
-      int precision : 0, int scale : 0, String table, bool unique : false,
-      bool insertable : true, bool updatable : true, String columnDefinition})
-      : this.name = name,
-        this.nullable = nullable,
-        this.length = length,
-        this.precision = precision,
-        this.scale = scale,
-        this.table = table,
-        this.unique = unique,
-        this.insertable = insertable,
-        this.updatable = updatable,
-        this.columnDefinition = columnDefinition;
+  const Column({this.name, this.nullable: true, this.length: 255, this.precision: 0, this.scale: 0, this.table, this.unique: false, this.insertable: true, this.updatable: true, this.columnDefinition});
 }
 
 /** For class: Used with SqlResultSetMapping. Specifies a column name in a query.
  * + [name] - the column name in the SELECT clause of a SQL query.
  */
-class ColumnResult extends Annotation {
+class ColumnResult {
   final String name;
 
   const ColumnResult(String name)
@@ -174,19 +146,13 @@ class ColumnResult extends Annotation {
  * DiscriminatorColumn are only specified in the root of entity class hierarchy.
  */
 //@Target(value:"TYPE")
-class DiscriminatorColumn extends Annotation {
+class DiscriminatorColumn {
   final String columnDefinition;
   final DiscriminatorType discriminatorType;
   final int length;
   final String name;
 
-  const DiscriminatorColumn({String name : "DTYPE",
-      DiscriminatorType discriminatorType : DiscriminatorType.STRING,
-      int length : 31, String columnDefinition})
-      : this.name = name,
-        this.discriminatorType = discriminatorType,
-        this.length = length,
-        this.columnDefinition = columnDefinition;
+  const DiscriminatorColumn({this.name: "DTYPE", this.discriminatorType: DiscriminatorType.STRING, this.length: 31, this.columnDefinition});
 }
 
 /** For class: specifies the value to discriminate a specific concret class;
@@ -194,7 +160,7 @@ class DiscriminatorColumn extends Annotation {
  * entity hierarchy.
  */
 //@Target(value:"TYPE")
-class DiscriminatorValue extends Annotation {
+class DiscriminatorValue {
   final String value;
 
   const DiscriminatorValue(this.value);
@@ -208,14 +174,11 @@ class DiscriminatorValue extends Annotation {
  * + [targetClass] - The qulified class name of the element of the collection.
  */
 //@Target(value:"FIELD")
-class ElementCollection extends Annotation {
+class ElementCollection {
   final FetchType fetch;
   final String targetClass;
 
-  const ElementCollection(
-      {FetchType fetch : FetchType.LAZY, String targetClass})
-      : this.fetch = fetch,
-        this.targetClass = targetClass;
+  const ElementCollection({this.fetch: FetchType.LAZY, this.targetClass});
 }
 
 /** For class: define the current class as an instrinsic part of an owning
@@ -224,7 +187,7 @@ class ElementCollection extends Annotation {
  * the embedded object is mapped to the same database table of the entity.
  */
 //@Target(value:"TYPE")
-class Embeddable extends Annotation {
+class Embeddable {
   const Embeddable();
 }
 
@@ -232,7 +195,7 @@ class Embeddable extends Annotation {
  * value is an [Embeddable] class.
  */
 //@Target(value:"FIELD")
-class Embedded extends Annotation {
+class Embedded {
   const Embedded();
 }
 
@@ -242,27 +205,28 @@ class Embedded extends Annotation {
  * [Entity].
  */
 //@Target(value:"FIELD")
-class EmbeddedId extends Annotation {
+class EmbeddedId {
   const EmbeddedId();
 }
+
+const entity = const Entity();
 
 /** For class: define the current class as an entity.
  * + [name] - optional entity name used in [Query]; if omitted, use the simple
  *  class name of the mapped class as the entity name.
  */
 //@Target(value:"TYPE")
-class Entity extends Annotation {
+class Entity {
   final String name;
 
-  const Entity([String name]) :
-    this.name = name;
+  const Entity([this.name]);
 }
 
 /** For class: specifies the callback listeners classes to be used for an
  * entity or mapped superclass.
  */
 //@Target(value:"TYPE")
-class EntityListeners extends Annotation {
+class EntityListeners {
   final List<String> classes;
 
   const EntityListeners(this.classes);
@@ -277,34 +241,29 @@ class EntityListeners extends Annotation {
  *   entity class.
  */
 //@Target(value:"TYPE")
-class EntityResult extends Annotation {
+class EntityResult {
   final String entityClass;
   final String descriminatorColumn;
   final List<FieldResult> fields;
 
-  const EntityResult(String entityClass,
-      {String descriminatorColumn, List<FieldResult> fields})
-      : this.entityClass = entityClass,
-        this.descriminatorColumn = descriminatorColumn,
-        this.fields = fields;
+  const EntityResult(this.entityClass, {this.descriminatorColumn, this.fields});
 }
 
 /** For field: specifies a field should be persisted as a enumerated type.
  * + [enumType] - persist with enum name or ordinal.
  */
 //@Target(value:"FIELD")
-class Enumerated extends Annotation {
+class Enumerated {
   final EnumType enumType;
 
-  const Enumerated({EnumType enumType : EnumType.ORDINAL})
-      : this.enumType = enumType;
+  const Enumerated({this.enumType: EnumType.ORDINAL});
 }
 
 /** For class: specifies the invocation of default listeners is excluded for the
  * [Entity] class(or [MappedSuperclass]) and its subclasses.
  */
 //@Target(value:"TYPE")
-class ExcludeDefaultListeners extends Annotation {
+class ExcludeDefaultListeners {
   const ExcludeDefaultListeners();
 }
 
@@ -312,7 +271,7 @@ class ExcludeDefaultListeners extends Annotation {
  * the [Entity] class(or [MappedSuperclass]) and its subclasses.
  */
 //@Target(value:"TYPE")
-class ExcludeSuperclassListeners extends Annotation {
+class ExcludeSuperclassListeners {
   const ExcludeSuperclassListeners();
 }
 
@@ -321,13 +280,11 @@ class ExcludeSuperclassListeners extends Annotation {
  * + [name] - name of the persistent field.
  * + [column] - name or alias of the column in SELECT clause.
  */
-class FieldResult extends Annotation {
+class FieldResult {
   final String name;
   final String column;
 
-  const FieldResult(String name, String column)
-      : this.name = name,
-        this.column = column;
+  const FieldResult(this.name, this.column);
 }
 
 /** For field: specifies primary key generation strategy.
@@ -336,19 +293,16 @@ class FieldResult extends Annotation {
  * [GenerationType]).
  */
 //@Target(value:"FIELD")
-class GeneratedValue extends Annotation {
+class GeneratedValue {
   final String generator;
   final GenerationType strategy;
 
-  const GeneratedValue({String generator,
-      GenerationType strategy : GenerationType.AUTO})
-      : this.generator = generator,
-        this.strategy = strategy;
+  const GeneratedValue({this.generator, this.strategy: GenerationType.AUTO});
 }
 
 /** For field: specifies the primary key of the entity in table. */
 //@Target(value:"FIELD")
-class Id extends Annotation {
+class Id {
   const Id();
 }
 
@@ -357,7 +311,7 @@ class Id extends Annotation {
  * + [type] - the dart type of the composite primary key.
  */
 //@Target(value:"TYPE")
-class IdClass extends Annotation {
+class IdClass {
   final String className;
 
   const IdClass(this.className);
@@ -369,11 +323,10 @@ class IdClass extends Annotation {
  * see [InheritanceType].
  */
 //@Target(value:"TYPE")
-class Inheritance extends Annotation {
+class Inheritance {
   final InheritanceType strategy;
 
-  const Inheritance({InheritanceType strategy : InheritanceType.SINGLE_TABLE})
-      : this.strategy = strategy;
+  const Inheritance({this.strategy: InheritanceType.SINGLE_TABLE});
 }
 
 /** For field: specifies a column for joining an entity or element
@@ -389,7 +342,7 @@ class Inheritance extends Annotation {
  * + [columnDefinition] - SQL fragment for DDL the column
  */
 //@Target(value:"FIELD")
-class JoinColumn extends Annotation {
+class JoinColumn {
   final String name;
   final bool nullable;
   final String referencedColumnName;
@@ -399,23 +352,13 @@ class JoinColumn extends Annotation {
   final bool updatable;
   final String columnDefinition;
 
-  const JoinColumn({String name, bool nullable : true,
-      String referencedColumnName, String table, bool unique : false,
-      bool insertable : true, bool updatable : true, String columnDefinition})
-      : this.name = name,
-        this.nullable = nullable,
-        this.referencedColumnName = referencedColumnName,
-        this.table = table,
-        this.unique = unique,
-        this.insertable = insertable,
-        this.updatable = updatable,
-        this.columnDefinition = columnDefinition;
+  const JoinColumn({this.name, this.nullable: true, this.referencedColumnName, this.table, this.unique: false, this.insertable: true, this.updatable: true, this.columnDefinition});
 }
 
 /** For field: defines a composite foreigh keys; groups of [joinColumn].
  */
 //@Target(value:"FIELD")
-class JoinColumns extends Annotation {
+class JoinColumns {
   final List<JoinColumn> joinColumns;
 
   const JoinColumns(this.joinColumns);
@@ -431,7 +374,7 @@ class JoinColumns extends Annotation {
  * + [uniqueConstraint] - uniqueContrains placed on the table.
  */
 //@Target(value:"FIELD")
-class JoinTable extends Annotation {
+class JoinTable {
   final String name;
   final String catalog;
   final String schema;
@@ -439,23 +382,17 @@ class JoinTable extends Annotation {
   final List<JoinColumn> inverseJoinColumns;
   final List<UniqueConstraint> uniqueConstraints;
 
-  const JoinTable({String name, String schema, String catalog,
-      List<JoinColumn> joinColumns, List<JoinColumn> inverseJoinColumns,
-      List<UniqueConstraint> uniqueConstraints})
-      : this.name = name,
-        this.catalog = catalog,
-        this.schema = schema,
-        this.joinColumns = joinColumns,
-        this.inverseJoinColumns = inverseJoinColumns,
-        this.uniqueConstraints = uniqueConstraints;
+  const JoinTable({this.name, this.schema, this.catalog, this.joinColumns, this.inverseJoinColumns, this.uniqueConstraints});
 }
 
 /** For field: specifies a field should be persisted as a large
  * object in database.
  */
+const blob = const Blob();
+
 //@Target(value:"FIELD")
-class Lob extends Annotation {
-  const Lob();
+class Blob {
+  const Blob();
 }
 
 /** For field: defines a many-to-many association.
@@ -466,18 +403,13 @@ class Lob extends Annotation {
  * other side; see [CascadeType]
  */
 //@Target(vlaue="FIELD")
-class ManyToMany extends Annotation {
+class ManyToMany {
   final String mappedBy;
   final String targetEntity;
   final FetchType fetch;
   final List<CascadeType> cascade;
 
-  const ManyToMany({String mappedBy, String targetEntity,
-      FetchType fetch : FetchType.LAZY, List<CascadeType> cascade})
-      : this.mappedBy = mappedBy,
-        this.targetEntity = targetEntity,
-        this.fetch = fetch,
-        this.cascade = cascade;
+  const ManyToMany({this.mappedBy, this.targetEntity, this.fetch: FetchType.LAZY, this.cascade});
 }
 
 /** For field: defines a many-to-one association to another entity.
@@ -488,36 +420,30 @@ class ManyToMany extends Annotation {
  * other side; see [CascadeType]
  */
 //@Target(value:"FIELD")
-class ManyToOne extends Annotation {
+class ManyToOne {
   final bool optional;
   final String targetEntity;
   final FetchType fetch;
   final List<CascadeType> cascade;
 
-  const ManyToOne({bool optional : true, String targetEntity,
-      FetchType fetch : FetchType.EAGER, List<CascadeType> cascade})
-      : this.optional = optional,
-        this.targetEntity = targetEntity,
-        this.fetch = fetch,
-        this.cascade = cascade;
+  const ManyToOne({this.optional: true, this.targetEntity, this.fetch: FetchType.EAGER, this.cascade});
 }
 
 /** For field: specifies the key for association to a Map class. The key is the
  * primary key or unique column of the value table(the other side).
  */
 //@Target(value:"FIELD")
-class MapKey extends Annotation {
+class MapKey {
   final String name;
 
-  const MapKey({String name})
-      : this.name = name;
+  const MapKey({this.name});
 }
 
 /** For field: specifies the key type(basic/embeddable/entity) for association
  * to a Map class.
  */
 //@Target(value:"FIELD")
-class MapKeyClass extends Annotation {
+class MapKeyClass {
   final String className;
 
   const MapKeyClass(this.className);
@@ -537,7 +463,7 @@ class MapKeyClass extends Annotation {
  * + [columnDefinition] - SQL fragment for DDL the column
  */
 //@Target(value:"FIELD")
-class MapKeyColumn extends Annotation {
+class MapKeyColumn {
   final String name;
   final bool nullable;
   final int length;
@@ -549,19 +475,7 @@ class MapKeyColumn extends Annotation {
   final bool updatable;
   final String columnDefinition;
 
-  const MapKeyColumn({String name, bool nullable : true, int length : 255,
-      int precision : 0, int scale : 0, String table, bool unique : false,
-      bool insertable : true, bool updatable : true, String columnDefinition})
-      : this.name = name,
-        this.nullable = nullable,
-        this.length = length,
-        this.precision = precision,
-        this.scale = scale,
-        this.table = table,
-        this.unique = unique,
-        this.insertable = insertable,
-        this.updatable = updatable,
-        this.columnDefinition = columnDefinition;
+  const MapKeyColumn({this.name, this.nullable: true, this.length: 255, this.precision: 0, this.scale: 0, this.table, this.unique: false, this.insertable: true, this.updatable: true, this.columnDefinition});
 }
 
 /** For field: specifies the enum type for a [Map] key whose basic type is an
@@ -569,11 +483,10 @@ class MapKeyColumn extends Annotation {
  * + [enumType] - persist with enum name or ordinal.
  */
 //@Target(value:"FIELD")
-class MapKeyEnumerated extends Annotation {
+class MapKeyEnumerated {
   final EnumType enumType;
 
-  const MapKeyEnumerated({EnumType enumType : EnumType.ORDINAL})
-      : this.enumType = enumType;
+  const MapKeyEnumerated([this.enumType = EnumType.ORDINAL]);
 }
 
 /** For field: specifes a  mapping to an [Entity] that is a [Map] key.
@@ -588,7 +501,7 @@ class MapKeyEnumerated extends Annotation {
  * + [columnDefinition] - SQL fragment for DDL the column
  */
 //@Target(value:"FIELD")
-class MapKeyJoinColumn extends Annotation {
+class MapKeyJoinColumn {
   final String name;
   final bool nullable;
   final String referencedColumnName;
@@ -598,24 +511,14 @@ class MapKeyJoinColumn extends Annotation {
   final bool updatable;
   final String columnDefinition;
 
-  const MapKeyJoinColumn({String name, bool nullable : true,
-      String referencedColumnName, String table, bool unique : false,
-      bool insertable : true, bool updatable : true, String columnDefinition})
-      : this.name = name,
-        this.nullable = nullable,
-        this.referencedColumnName = referencedColumnName,
-        this.table = table,
-        this.unique = unique,
-        this.insertable = insertable,
-        this.updatable = updatable,
-        this.columnDefinition = columnDefinition;
+  const MapKeyJoinColumn({this.name, this.nullable: true, this.referencedColumnName, this.table, this.unique: false, this.insertable: true, this.updatable: true, this.columnDefinition});
 }
 
 /** For field: supports composite map keys that reference entities; group of
  * [MapKeyJoinColumn]s.
  */
 //@Target(value:"FIELD")
-class MapKeyJoinColumns extends Annotation {
+class MapKeyJoinColumns {
   final List<MapKeyJoinColumn> joinColumns;
 
   const MapKeyJoinColumns(this.joinColumns);
@@ -626,30 +529,31 @@ class MapKeyJoinColumns extends Annotation {
  * see [TemporalType].
  */
 //@Target(value:"FIELD")
-class MapKeyTemporal extends Annotation {
+class MapKeyTemporal {
   final TemporalType temporal;
 
   const MapKeyTemporal(this.temporal);
 }
 
 /** For class: specifies a super class to be inherited by an entity */
+
+const mappedSuperclass = const MappedSuperclass();
 //@Target(value:"TYPE")
-class MappedSuperclass extends Annotation {
+class MappedSuperclass {
   const MappedSuperclass();
 }
 
-/** For field: designates a [MonyToOne] or [OneToOne] relationship field that
+/** For field: designates a [ManyToOne] or [OneToOne] relationship field that
  * provides the mapping for an [EmbeddedId] primary key, a field within an
  * [EmbeddedId] primary key, or a simple primary key of the parent entity.
  *
  * + [name] - name of the mapped id.
  */
 //@Target(value:"FIELD")
-class MapsId extends Annotation {
+class MapsId {
   final String name;
 
-  const MapsId({String name})
-      : this.name = name;
+  const MapsId([this.name]);
 }
 
 /** For class: specify multiple native SQL named queries. The query names are
@@ -659,7 +563,7 @@ class MapsId extends Annotation {
  * + [queries] - Array of [NamedNativeQuery].
  */
 //@Target(value:"TYPE")
-class NamedNativeQueries extends Annotation {
+class NamedNativeQueries {
   final List<NamedNativeQuery> queries;
 
   const NamedNativeQueries(this.queries);
@@ -678,18 +582,14 @@ class NamedNativeQueries extends Annotation {
  * + [hints] - query hints and properties.
  */
 //@Target(value:"TYPE")
-class NamedNativeQuery extends Annotation {
+class NamedNativeQuery {
   final String name;
   final String query;
   final List<QueryHint> hints;
   final String resultClass;
   final String resultSetMapping;
 
-  const NamedNativeQuery(this.name, this.query,
-      {String resultSetMapping, String resultClass, List<QueryHint> hints})
-      : this.hints = hints,
-        this.resultClass = resultClass,
-        this.resultSetMapping = resultSetMapping;
+  const NamedNativeQuery(this.name, this.query, {this.resultSetMapping, this.resultClass, this.hints});
 }
 
 /** For class: specify multiple named object-level queries. The query names are
@@ -699,7 +599,7 @@ class NamedNativeQuery extends Annotation {
  * + [queries] - Array of [NamedQuery].
  */
 //@Target(value:"TYPE")
-class NamedQueries extends Annotation {
+class NamedQueries {
   final List<NamedQuery> queries;
 
   const NamedQueries(this.queries);
@@ -712,20 +612,17 @@ class NamedQueries extends Annotation {
  * + [name] - the name used to refer this query with [EntityManager]'s method
  *   that create query objects.
  * + [query] - The SQL query string.
- * + [lockMode] - the [LockModeType] when doing query.
+ * + [lockMode] - the [LockMode] when doing query.
  * + [hints] - query hints and properties.
  */
 //@Target(value:"TYPE")
-class NamedQuery extends Annotation {
+class NamedQuery {
   final String name;
   final String query;
   final List<QueryHint> hints;
-  final LockModeType lockMode;
+  final LockMode lockMode;
 
-  const NamedQuery(this.name, this.query,
-      {LockModeType lockMode, List<QueryHint> hints})
-      : this.hints = hints,
-        this.lockMode = lockMode;
+  const NamedQuery(this.name, this.query, {this.lockMode, this.hints});
 }
 
 /** For field: defines a one-to-many association.
@@ -739,21 +636,14 @@ class NamedQuery extends Annotation {
  * those entities.
  */
 //@Target(value:"FIELD")
-class OneToMany extends Annotation {
+class OneToMany {
   final String mappedBy;
   final String targetEntity;
   final FetchType fetch;
   final List<CascadeType> cascade;
   final bool orphanRemoval;
 
-  const OneToMany({String mappedBy, String targetEntity,
-      FetchType fetch : FetchType.LAZY,
-      List<CascadeType> cascade, bool orphanRemoval : false})
-      : this.mappedBy = mappedBy,
-        this.targetEntity = targetEntity,
-        this.fetch = fetch,
-        this.cascade = cascade,
-        this.orphanRemoval = orphanRemoval;
+  const OneToMany({this.mappedBy, this.targetEntity, this.fetch: FetchType.LAZY, this.cascade, this.orphanRemoval: false});
 }
 
 /** For field: defines a one-to-one association.
@@ -768,7 +658,7 @@ class OneToMany extends Annotation {
  * those entities.
  */
 //@Target(value:"FIELD")
-class OneToOne extends Annotation {
+class OneToOne {
   final bool optional;
   final String mappedBy;
   final String targetEntity;
@@ -776,15 +666,7 @@ class OneToOne extends Annotation {
   final List<CascadeType> cascade;
   final bool orphanRemoval;
 
-  const OneToOne({bool optional : true, String mappedBy, String targetEntity,
-      FetchType fetch : FetchType.EAGER, List<CascadeType> cascade,
-      bool orphanRemoval : false})
-      : this.optional = optional,
-        this.mappedBy = mappedBy,
-        this.targetEntity = targetEntity,
-        this.fetch = fetch,
-        this.cascade = cascade,
-        this.orphanRemoval = orphanRemoval;
+  const OneToOne({this.optional: true, this.mappedBy, this.targetEntity, this.fetch: FetchType.EAGER, this.cascade, this.orphanRemoval: false});
 }
 
 /** For field: specifies the ordering of the fields of a collection valued
@@ -793,11 +675,10 @@ class OneToOne extends Annotation {
  * + [orderByList] - List of orderBy fields.
  */
 //@Target(value:"FIELD")
-class OrderBy extends Annotation {
+class OrderBy {
   final String orderByList;
 
-  const OrderBy({String orderByList})
-      : this.orderByList = orderByList;
+  const OrderBy({this.orderByList});
 }
 
 /** For field: specifes a column that is used to maintain the order of a list.
@@ -811,33 +692,27 @@ class OrderBy extends Annotation {
  * + [columnDefinition] - SQL fragment for DDL the column
  */
 //@Target(value:"FIELD")
-class OrderColumn extends Annotation {
+class OrderColumn {
   final String name;
   final bool nullable;
   final bool insertable;
   final bool updatable;
   final String columnDefinition;
 
-  const OrderColumn({String name, bool nullable : true,
-      bool insertable : true, bool updatable : true, String columnDefinition})
-      : this.name = name,
-        this.nullable = nullable,
-        this.insertable = insertable,
-        this.updatable = updatable,
-        this.columnDefinition = columnDefinition;
+  const OrderColumn({this.name, this.nullable: true, this.insertable: true, this.updatable: true, this.columnDefinition});
 }
 
-//class PersistenceContext extends Annotation {
-//class PersistenceContexts extends Annotation {
-//class PersistenceProperty extends Annotation {
-//class PersistenceUnit extends Annotation {
-//class PersistenceUnits extends Annotation {
+//class PersistenceContext {
+//class PersistenceContexts {
+//class PersistenceProperty {
+//class PersistenceUnit {
+//class PersistenceUnits {
 
 /** For method: specifies callback methods of any [Entity], [MappedSuperclass],
  * or a callback listener class for the corresponding lifecycle event.
  */
 //@Target(value:"METHOD")
-class PostLoad extends Annotation {
+class PostLoad {
   const PostLoad();
 }
 
@@ -845,7 +720,7 @@ class PostLoad extends Annotation {
  * or a callback listener class for the corresponding lifecycle event.
  */
 //@Target(value:"METHOD")
-class PostPersist extends Annotation {
+class PostPersist {
   const PostPersist();
 }
 
@@ -853,7 +728,7 @@ class PostPersist extends Annotation {
  * or a callback listener class for the corresponding lifecycle event.
  */
 //@Target(value:"METHOD")
-class PostRemove extends Annotation {
+class PostRemove {
   const PostRemove();
 }
 
@@ -861,7 +736,7 @@ class PostRemove extends Annotation {
  * or a callback listener class for the corresponding lifecycle event.
  */
 //@Target(value:"METHOD")
-class PostUpdate extends Annotation {
+class PostUpdate {
   const PostUpdate();
 }
 
@@ -869,15 +744,15 @@ class PostUpdate extends Annotation {
  * or a callback listener class for the corresponding lifecycle event.
  */
 //@Target(value:"METHOD")
-class PrePersist extends Annotation {
-  const PrePersist ();
+class PrePersist {
+  const PrePersist();
 }
 
 /** For method: specifies callback methods of any [Entity], [MappedSuperclass],
  * or a callback listener class for the corresponding lifecycle event.
  */
 //@Target(value:"METHOD")
-class PreRemove extends Annotation {
+class PreRemove {
   const PreRemove();
 }
 
@@ -885,7 +760,7 @@ class PreRemove extends Annotation {
  * or a callback listener class for the corresponding lifecycle event.
  */
 //@Target(value:"METHOD")
-class PreUpdate extends Annotation {
+class PreUpdate {
   const PreUpdate();
 }
 
@@ -898,16 +773,12 @@ class PreUpdate extends Annotation {
  * + [columnDefinition] - SQL fragment for DDL the column
  */
 //@Target(value:{"METHOD","TYPE","FIELD")
-class PrimaryKeyJoinColumn extends Annotation {
+class PrimaryKeyJoinColumn {
   final String name;
   final String referencedColumnName;
   final String columnDefinition;
 
-  const PrimaryKeyJoinColumn({String name, String referencedColumnName,
-                    String columnDefinition})
-      : this.name = name,
-        this.referencedColumnName = referencedColumnName,
-        this.columnDefinition = columnDefinition;
+  const PrimaryKeyJoinColumn({this.name, this.referencedColumnName, this.columnDefinition});
 }
 
 /** For class/field/method: spcifies group of PrimaryKeyJoinColumn for composite
@@ -916,7 +787,7 @@ class PrimaryKeyJoinColumn extends Annotation {
  * + [joinColumns] - group of [PrimaryKeyJoinColumn].
  */
 //@Target(value:{"METHOD","TYPE","FIELD")
-class PrimaryKeyJoinColumns extends Annotation {
+class PrimaryKeyJoinColumns {
   final List<PrimaryKeyJoinColumn> joinColumns;
 
   const PrimaryKeyJoinColumns(this.joinColumns);
@@ -928,7 +799,7 @@ class PrimaryKeyJoinColumns extends Annotation {
  *  + [name] - name of the hint.
  *  + [value] - value of the hint.
  */
-class QueryHint extends Annotation {
+class QueryHint {
   final String name;
   final String value;
 
@@ -944,30 +815,22 @@ class QueryHint extends Annotation {
  * + [pkJoinColumns] - columns used to join primary table.
  */
 //@Target(value:"TYPE")
-class SecondaryTable extends Annotation {
+class SecondaryTable {
   final String name;
   final String schema;
   final String catalog;
   final List<PrimaryKeyJoinColumn> pkJoinColumns;
   final List<UniqueConstraint> uniqueConstraints;
 
-  const SecondaryTable(String name, {String schema, String catalog,
-      List<UniqueConstraint> uniqueConstraints,
-      List<PrimaryKeyJoinColumn> pkJoinColumns})
-      : this.name = name,
-        this.schema = schema,
-        this.catalog = catalog,
-        this.pkJoinColumns = pkJoinColumns,
-        this.uniqueConstraints = uniqueConstraints;
+  const SecondaryTable(this.name, {this.schema, this.catalog, this.uniqueConstraints, this.pkJoinColumns});
 }
 
 /** For class: specifies multiple secndary tables for the entity class. */
 //@Target(value:"TYPE")
-class SecondaryTables extends Annotation {
+class SecondaryTables {
   final List<SecondaryTable> tables;
 
-  const SecondaryTables(List<SecondaryTable> tables)
-      : this.tables = tables;
+  const SecondaryTables(this.tables);
 }
 
 /** For class/field/method: defines a primary key generator that may be
@@ -983,7 +846,7 @@ class SecondaryTables extends Annotation {
  *  + [catalog] - the database catalog of the generator.
  */
 //@Target(value:{"TYPE","METHOD","FIELD"})
-class SequenceGenerator extends Annotation {
+class SequenceGenerator {
   final String name;
   final int allocationSize;
   final String catalog;
@@ -991,14 +854,7 @@ class SequenceGenerator extends Annotation {
   final String schema;
   final String sequenceName;
 
-  const SequenceGenerator(this.name,
-      {int allocationSize, int initialValue : 1,
-      String sequenceName, String schema, String catalog})
-      : this.sequenceName = sequenceName,
-        this.catalog = catalog,
-        this.schema = schema,
-        this.initialValue = initialValue,
-        this.allocationSize = allocationSize;
+  const SequenceGenerator(this.name, {this.allocationSize, this.initialValue: 1, this.sequenceName, this.schema, this.catalog});
 }
 
 /** For class: specifies the mapping of the result of a native SQL query.
@@ -1007,27 +863,22 @@ class SequenceGenerator extends Annotation {
  * + [entities] - specifies the result set mapping to entities.
  */
 //@Target(value:"TYPE")
-class SqlResultSetMapping extends Annotation {
+class SqlResultSetMapping {
   final String name;
   final List<ColumnResult> columns;
   final List<EntityResult> entities;
 
-  const SqlResultSetMapping(String name, { List<ColumnResult> columns,
-      List<EntityResult> entities})
-      : this.name = name,
-        this.columns = columns,
-        this.entities = entities;
+  const SqlResultSetMapping(this.name, {this.columns, this.entities});
 }
 
 /** For class: specifies the multiple SQLResultSetMapping for native SQL
  * queries.
  */
 //@Target(value:"TYPE")
-class SqlResultSetMappings extends Annotation {
+class SqlResultSetMappings {
   final List<SqlResultSetMapping> mappings;
 
-  const SqlResultSetMappings(List<SqlResultSetMapping> mappings)
-      : this.mappings = mappings;
+  const SqlResultSetMappings(this.mappings);
 }
 
 /** For class: specifies the primary table for the entity.
@@ -1037,18 +888,13 @@ class SqlResultSetMappings extends Annotation {
  * + [uniqueConstraints] - unique constraints placed on the table.
  */
 //@Target(value:"TYPE")
-class Table extends Annotation {
+class Table {
   final String name;
   final String catalog;
   final String schema;
   final List<UniqueConstraint> uniqueConstraints;
 
-  const Table({String name, String schema, String catalog,
-               List<UniqueConstraint> uniqueConstraints})
-      : this.name = name,
-        this.catalog = catalog,
-        this.schema = schema,
-        this.uniqueConstraints = uniqueConstraints;
+  const Table({this.name, this.schema, this.catalog, this.uniqueConstraints});
 }
 
 /** For class: defines a primary key generator that maybe referenced by name
@@ -1069,7 +915,7 @@ class Table extends Annotation {
  * + [catalog] - database catalog of the table.
  */
 //@Target(value:{"TYPE","METHOD","FIELD"})
-class TableGenerator extends Annotation {
+class TableGenerator {
   final String name;
   final int allocationSize;
   final int initialValue;
@@ -1081,23 +927,14 @@ class TableGenerator extends Annotation {
   final String pkColumnValue;
   final List<UniqueConstraint> uniqueConstraints;
 
-  const TableGenerator(this.name,
-      {int allocationSize : 50, int initialValue : 0,
-      String pkColumnName, String pkColumnValue, String valueColumnName,
-      String table, String schema, String catalog,
-      List<UniqueConstraint> uniqueConstraints})
-      : this.allocationSize = allocationSize, this.initialValue = initialValue,
-        this.pkColumnName = pkColumnName, this.pkColumnValue = pkColumnValue,
-        this.valueColumnName = valueColumnName, this.table = table,
-        this.schema = schema, this.catalog = catalog,
-        this.uniqueConstraints = uniqueConstraints;
+  const TableGenerator(this.name, {this.allocationSize: 50, this.initialValue: 0, this.pkColumnName, this.pkColumnValue, this.valueColumnName, this.table, this.schema, this.catalog, this.uniqueConstraints});
 }
 
 /** For field: specifies map to which temporal type in database.
  * + [temporalType] - temporal type to map for Date class; see [TemporalType].
  */
 //@Target(value:"FIELD")
-class Temporal extends Annotation {
+class Temporal {
   final TemporalType temporal;
 
   const Temporal(this.temporal);
@@ -1105,7 +942,7 @@ class Temporal extends Annotation {
 
 /** For field: specifies the field is not persistent. */
 //@Target(value:"FIELD")
-class Transient extends Annotation {
+class Transient {
   const Transient();
 }
 
@@ -1115,7 +952,7 @@ class Transient extends Annotation {
  * + [name] - optional constraint name.
  */
 //@Target(value:"FIELD")
-class UniqueConstraint extends Annotation {
+class UniqueConstraint {
   final List<String> columnNames;
   final String name;
 
@@ -1128,6 +965,6 @@ class UniqueConstraint extends Annotation {
  * optimistic locking.
  */
 //@Target(value:"FIELD")
-class Version extends Annotation {
+class Version {
   const Version();
 }

@@ -3,6 +3,8 @@
 // Author: hernichen
 //TODO JPA spec. ref http://docs.oracle.com/javaee/6/api/index.html?javax/persistence/PersistenceUnitUtil.html
 
+part of rikulo_orm;
+
 /** Untility interface between the application and the persistence provider that
  * managing the persistence unit.
  */

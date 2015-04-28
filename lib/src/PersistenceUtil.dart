@@ -3,6 +3,8 @@
 // Author: hernichen
 //TODO JPA spec. ref http://docs.oracle.com/javaee/6/api/index.html?javax/persistence/PersistenceUtil.html
 
+part of rikulo_orm;
+
 /** Untity inteface between the application and the persistence provider.
  *
  * The PersistenceUtil obtained from the [Persistence] class is used to

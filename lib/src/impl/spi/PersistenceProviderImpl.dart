@@ -1,6 +1,7 @@
 //Copyright (C) 2012 Potix Corporation. All Rights Reserved.
 //History: Thu, Mar 23, 2012 03:45:13 PM
 // Author: henrichen
+part of rikulo_orm_impl;
 
 class PersistenceProviderImpl implements PersistenceProvider {
   static String _PROVIDER_NAME = "rikulo:orm/spi/impl.PersistenceProviderImpl";
@@ -26,18 +27,13 @@ class PersistenceProviderImpl implements PersistenceProvider {
           "PersistenceUnit name is not provided and there are more "
           "than one PersistenceUnits found; don't know which one to use.");
     for (PersistenceUnitInfo uinfo in uinfos) {
-      if (name == null || name == uinfo.getPersistenceUnitName()) {
+      if (name == null || name == uinfo.persistenceUnitName) {
         if (_isProvider(uinfo, myprops))
           return _createEntityManagerFactory0(uinfo, myprops);
       }
     }
 
     return null; //none was found!
-  }
-
-  //TODO(henri)
-  ProviderUtil getProviderUtil() {
-    throw const NotImplementedException("getProviderUtil");
   }
 
   Future<EntityManagerFactory> _createEntityManagerFactory0(
@@ -53,7 +49,7 @@ class PersistenceProviderImpl implements PersistenceProvider {
     //information in properties has higher priority
     String pclass = properties == null ? null : properties["rikulo:orm.provider"];
     if (pclass == null)
-      pclass = uinfo.getPersistenceProviderClassName();
+      pclass = uinfo.persistenceProviderClassName;
     if (pclass != null)
       pclass = pclass.trim();
 
@@ -83,4 +79,13 @@ class PersistenceProviderImpl implements PersistenceProvider {
 
     return minfo;
   }
+
+  @override
+  void generateSchema(PersistenceUnitInfo info, Map map) {
+    // TODO: implement generateSchema
+  }
+
+  // TODO: implement providerUtil
+  @override
+  ProviderUtil get providerUtil => null;
 }

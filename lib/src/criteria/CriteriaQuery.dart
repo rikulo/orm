@@ -2,6 +2,8 @@
 //History: Tue, Aug 14, 2012  11:01:14 AM
 // Author: hernichen
 
+part of rikulo_orm_criteria;
+
 /** Query functionalities in entity level specified for top-level query
  *   + [T] - the type of the query result.
  */

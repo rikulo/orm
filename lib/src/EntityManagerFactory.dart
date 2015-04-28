@@ -2,6 +2,8 @@
 //History: Wed, Aug 15, 2012  07:13:37 PM
 // Author: hernichen
 
+part of rikulo_orm;
+
 /** EntityManger factory for the persistence unit. */
 abstract class EntityManagerFactory {
   /** Create an EntityManager with optional [properties]. A new

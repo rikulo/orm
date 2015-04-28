@@ -2,6 +2,8 @@
 //History: Wed, Aug 22, 2012  07:35:27 PM
 // Author: hernichen
 
+part of rikulo_orm;
+
 /** + Thrown by the persistence provider when [Query].getSingleResult() or
  * [TypedQuery].getSingleResult() is executed on a query and there is more than
  * one result from the query.

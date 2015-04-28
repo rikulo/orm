@@ -2,11 +2,11 @@
 //History: Tue, Aug 21, 2012  04:34:10 PM
 // Author: hernichen
 
-/** Defines the join types */
-class JoinType extends Enum {
-  static const JoinType INNER = const JoinType("INNER", 0);
-  static const JoinType LEFT = const JoinType("LEFT", 1);
-  static const JoinType RIGHT = const JoinType("RIGHT", 2);
+part of rikulo_orm_criteria;
 
-  const JoinType(String name, int ordinal) : super(name, ordinal);
+/** Defines the join types */
+enum JoinType {
+  INNER,
+  LEFT,
+  RIGHT
 }

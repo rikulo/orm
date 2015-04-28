@@ -2,6 +2,8 @@
 //History: Tue, Aug 21, 2012  06:46:34 PM
 // Author: hernichen
 
+part of rikulo_orm_criteria;
+
 /** Represent a join-fetched association.
  *   + [Z] - the source type of the fetch.
  *   + [X] - the target type of the fetch.

@@ -2,6 +2,8 @@
 //History: Wed, Aug 22, 2012  04:58:43 PM
 // Author: hernichen
 
+part of rikulo_orm_criteria;
+
 /** Used to build simple `case` expression.
  *  + [C] - dart type of the condition to be evaluated.
  *  + [R] - expression to be tested against conditions.

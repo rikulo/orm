@@ -1,3 +1,5 @@
+part of rikulo_orm_metamodel;
+
 //Copyright (C) 2012 Potix Corporation. All Rights Reserved.
 //History: Mon, Aug 20, 2012  03:23:45 PM
 // Author: hernichen
@@ -8,25 +10,25 @@
  */
 abstract class Attribute<X,Y> {
   /** Returns the managed Class where the attribute is declared */
-  ManagedType<X> getDeclaringType();
+  ManagedType<X> get declaringType;
 
   /** Returns the member mirror for the represented attribute. */
-  MethodMirror getDartMember();
+  MethodMirror get dartMember;
 
   /** Returns the class mirror of the represented attribute. */
-  ClassMirror getDartType();
+  ClassMirror get dartType;
 
   /** Returns the name of the represented attribute. */
-  String getName();
+  Symbol get name;
 
   /** Returns the persistentAttributeType. */
-  PersistentAttributeType getPersistentAttributeType();
+  PersistentAttributeType get persistentAttributeType;
 
   /** Whether the attribute an association */
-  bool isAssociation();
+  bool get isAssociation;
 
   /** Whether the attribute an collection-valued; i.e. Collection, Set, List,
    * Map.
    */
-  bool isCollection();
+  bool get isCollection;
 }

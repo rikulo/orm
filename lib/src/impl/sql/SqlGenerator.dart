@@ -1,3 +1,5 @@
+part of rikulo_orm_impl;
+
 //Copyright (C) 2012 Potix Corporation. All Rights Reserved.
 //History: Tue, Sep 11, 2012  10:15:11 AM
 // Author: hernichen
@@ -159,7 +161,7 @@ class SqlGenerator {
    * + {cols} - columns defintion
    * + {nosort} - NOSORT | REVERSE
    */
-  String getCreateIndexTemplate_()
+  String get createIndexTemplate
     => "CREATE {unique} INDEX {idx} ON {tb} ADD INDEX({cols})";
 
   /** Returns the template string for defining a table foreign key.
@@ -181,7 +183,7 @@ class SqlGenerator {
 
   /** Map a sql type to a specific sql script */
   void mapType_(SqlType t, String script, [int capacity = 0]) {
-    _typeMapping.putScript(t, script, capacity);
+    _typeMapping.put(t, script, capacity);
   }
 
   /** Map a sql token to a specific sql script template */

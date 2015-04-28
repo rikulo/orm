@@ -1,3 +1,5 @@
+part of rikulo_orm_impl;
+
 //Copyright (C) 2012 Potix Corporation. All Rights Reserved.
 //History: Fri, Aug 31, 2012  05:24:41 PM
 // Author: hernichen
@@ -39,15 +41,15 @@ class IdentifiableTypeImpl<X> extends ManagedTypeImpl<X>
    */
   SingularAttribute<X,dynamic> getDeclaredId(ClassMirror type) {
     if (_idClass != null)
-      throw const IllegalArgumentException(type);
+      throw new ArgumentError(type);
     SingularAttribute<X,dynamic> idAttr = _getDeclaredId0(type);
     if (idAttr == null)
-      throw const IllegalArgumentException(type);
+      throw new ArgumentError(type);
     return idAttr;
   }
   SingularAttribute<X,dynamic> _getDeclaredId0(ClassMirror type) {
     for (SingularAttribute<X,dynamic> idAttr in _idAttrs)
-      if (idAttr.getDartType() == type)
+      if (idAttr.dartType == type)
         return idAttr;
     return null;
   }
@@ -58,12 +60,12 @@ class IdentifiableTypeImpl<X> extends ManagedTypeImpl<X>
   SingularAttribute<X,dynamic> getDeclaredVersion(ClassMirror type) {
     SingularAttribute<X,dynamic> verAttr = _getDeclaredVersion0(type);
     if (verAttr == null)
-      throw const IllegalArgumentException(type);
+      throw new ArgumentError(type);
     return verAttr;
   }
   SingularAttribute<X,dynamic> _getDeclaredVersion0(ClassMirror type) {
     for (SingularAttribute<X,dynamic> verAttr in _verAttrs)
-      if (verAttr.getDartType() == type)
+      if (verAttr.dartType == type)
         return verAttr;
     return null;
   }
@@ -80,7 +82,7 @@ class IdentifiableTypeImpl<X> extends ManagedTypeImpl<X>
       if (superIdent != null)
         return superIdent.getId(type);
     }
-    throw const IllegalArgumentException(type);
+    throw new ArgumentError(type);
   }
 
   /** Returns the attributes that corresponding to the id classes */
@@ -92,7 +94,7 @@ class IdentifiableTypeImpl<X> extends ManagedTypeImpl<X>
 
   /** Returns the type that represent the type of the id */
   MetaType getIdType() => _idClass != null ?
-      _metamodel._getMetaType(_idClass) : _idAttrs[0].getType();
+      _metamodel._getMetaType(_idClass) : _idAttrs[0].bindableDartType;
 
   /** Returns the identificable type that corresponds to the most specific
    * MappedSuperclass or Entity extended by the Entity or MappedSuperclass.
@@ -115,7 +117,7 @@ class IdentifiableTypeImpl<X> extends ManagedTypeImpl<X>
       if (superIdent != null)
         return superIdent.getVersion(type);
     }
-    throw const IllegalArgumentException(type);
+    throw new ArgumentError(type);
   }
 
   /** Returns wheather the identifiable type has a single id field. */
@@ -126,21 +128,21 @@ class IdentifiableTypeImpl<X> extends ManagedTypeImpl<X>
 
   //extra
   void _handleIdAttr(SingularAttributeImpl attr) {
-    if (attr.isId()) {
-      if (attr.isEmbedded()) { //@EmbeddedId
+    if (attr.isId) {
+      if (attr.isEmbedded) { //@EmbeddedId
         if (!_idAttrs.isEmpty)
           throw const PersistenceException("Cannot define both @EmbeddedId and @Id in an Entity");
         if (_idClass != null)
           throw const PersistenceException("Cannot define both @EmbeddedId and @IdClass in an Entity");
         _embeddedId = true;
-        _idClass = attr.getDartType();
+        _idClass = attr.dartType;
       }
       _idAttrs.add(attr);
     }
   }
 
   void _handleVerAttr(SingularAttributeImpl attr) {
-    if (attr.isVersion()) _verAttrs.add(attr);
+    if (attr.isVersion) _verAttrs.add(attr);
   }
 
   void _handlePostLoad(MethodMirror method) {
